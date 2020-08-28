@@ -1,0 +1,134 @@
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &.form-home {
+        padding-top: 0px;
+    }
+
+    &.form-product {
+        background: #16161616;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    label {
+        font-weight: bold;
+        color: #75758b;
+        margin: 5px 2px;
+        float: left;
+    }
+
+    &__title {
+        font-size: 44px;
+        color: #ff4c00;
+        margin-bottom: 40px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    &__items {
+        display: flex;
+        max-width: 1230px;
+        flex-direction: row;
+    }
+
+    &__form p {
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+
+    &__desctiption {
+        display: flex;
+        flex-direction: column;
+        padding-left: 50px;
+
+        p,
+        b {
+            padding-bottom: 20px;
+        }
+
+        p {
+            color: #575757;
+        }
+
+        .phone {
+            a {
+                color: #cf3e00;
+                font-weight: bold;
+                text-decoration: none;
+
+                &:hover {
+                    color: #791f00;
+                }
+            }
+        }
+
+        .whatsapp {
+            &::before {
+                content: "";
+                background-image: url('../images/whatsapp-icone.png');
+                width: 26px;
+                height: 26px;
+                display: block;
+                background-size: 100%;
+                top: 15px;
+                left: 25px;
+                position: absolute;
+            }
+
+            cursor: pointer;
+            color: #fff;
+            background: #455a64;
+            padding: 19px;
+            margin-bottom: 20px;
+            max-width: 250px;
+            border-radius: 5px;
+            text-decoration: none;
+            position: relative;
+            padding-left: 50px;
+            text-align: center;
+        }
+
+        .facebook-link img {
+            width: 24px;
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        &__title {
+            font-size: 32px;
+        }
+
+        &__items {
+            flex-direction: column;
+        }
+
+        &__desctiption {
+            padding-left: 0px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .whatsapp {
+            &::before {
+                left: 20px;
+            }
+
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    }
+
+}

@@ -1,0 +1,71 @@
+version: "3.2"
+
+volumes:
+
+  mysql-data:
+    driver: local
+
+  # redis-data:
+  #   driver: local
+
+  portainer-data:
+    driver: local
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-acp
+    restart: always
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=acp
+      - MYSQL_USER=homestead
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=secret
+
+  # cache:
+  #   image: redis:4.0
+  #   container_name: redis-acp
+  #   restart: always
+  #   command: --appendonly yes
+  #   volumes:
+  #     - redis-data:/data
+  #   ports:
+  #     - 6379:6379
+
+  # queue:
+  #   image: ambientum/php:latest
+  #   container_name: queue-acp
+  #   restart: always
+  #   command: php artisan queue:listen
+  #   volumes:
+  #     - .:/var/www/app
+  #   links:
+  #     - mysql
+  #     - cache
+
+  # app:
+  #   image: ambientum/php:latest-nginx
+  #   container_name: app
+  #   restart: always
+  #   volumes:
+  #     - ./:/var/www/app
+  #   ports:
+  #     - 80:8080
+  #     - 443:8083
+  #   links:
+  #     - mysql
+
+  # portainer:
+  #   image: portainer/portainer:latest
+  #   container_name: portainer
+  #   restart: always
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  #     - portainer-data:/data
+  #   ports:
+  #     - 9000:9000

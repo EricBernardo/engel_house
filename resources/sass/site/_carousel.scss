@@ -1,0 +1,21 @@
+.carousel {
+    &__view {
+        display: none;
+        background: #161616;
+        border-bottom: 1px solid #fff;
+        overflow: hidden;
+        margin-top: 95px;
+    }
+}
+.product-list {
+    display: flex;
+    transition: transform 0.3s;
+    transform: translateX(0px);
+    list-style: none;
+
+    &__item {
+        padding: 10px;
+        color: white;
+        font-size: 12px;
+    }
+}

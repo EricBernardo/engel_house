@@ -1,0 +1,117 @@
+.blocks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    &__title {
+        font-size: 44px;
+        color: #ff4c00;
+        margin-bottom: 10px;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    &__items {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    @media (max-width: 768px) {
+        &__title {
+            font-size: 32px;
+        }
+    }
+}
+
+.block_item {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+
+    &__image {
+        max-width: 50%;
+        margin-bottom: 20px;
+
+        img {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    }
+
+    &:nth-of-type(even) {
+        flex-direction: row-reverse;
+
+        .block_item__image {
+            padding-left: 40px;
+        }
+    }
+
+    &:nth-of-type(odd) {
+        .block_item__image {
+            padding-right: 40px;
+        }
+    }
+
+    &__info {
+        max-width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+
+    &__description {
+        color: #575757;
+        line-height: 22px;
+        max-width: 500px;
+    }
+
+    a {
+        font-weight: 700;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 150px;
+        padding: 15px;
+        background-color: #ff4c00;
+        color: #fff;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-decoration: none;  
+        margin: 10px auto;      
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+
+        &:nth-of-type(even) {
+            flex-direction: column;
+
+            .block_item__image {
+                padding: 0px;
+            }
+
+        }
+
+        &:nth-of-type(odd) {
+            flex-direction: column;
+
+            .block_item__image {
+                padding: 0px;
+            }
+        }
+
+        &__image,
+        &__info {
+            max-width: 100%;
+        }
+
+    }
+}
