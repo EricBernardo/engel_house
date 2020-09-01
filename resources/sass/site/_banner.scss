@@ -1,0 +1,42 @@
+.banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 500px;
+    overflow: hidden;
+
+    &--text {
+        position: absolute;
+        color: #fff;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    &--title {
+        font-size: 62px;
+        font-weight: bold;
+    }
+
+    &--subtitle {
+        margin-top: 10px;
+        font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+        &--text {
+            max-width: 300px;
+        }
+
+        &--title {
+            font-size: 24px;
+        }
+
+        &--subtitle {
+            font-size: 18px;
+        }
+        &--img {
+            margin-top: 0;
+        }
+    }
+}

@@ -48,6 +48,8 @@
 
         @include('site/includes/header')
 
+        @include('site/includes/banner')
+
         <script async src="{{ URL::asset('/js/site/app.js?v=') . env('APP_VERSION') }}"></script>
 
     </body>

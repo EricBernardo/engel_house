@@ -91,166 +91,19 @@
   !*** ./resources/js/site/app.js ***!
   \**********************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ./map */ "./resources/js/site/map.js");
-
-__webpack_require__(/*! ./lead */ "./resources/js/site/lead.js");
-
-__webpack_require__(/*! ./carousel */ "./resources/js/site/carousel.js");
-
-/***/ }),
-
-/***/ "./resources/js/site/carousel.js":
-/*!***************************************!*\
-  !*** ./resources/js/site/carousel.js ***!
-  \***************************************/
-/*! no static exports found */
 /***/ (function(module, exports) {
 
-(function () {
-  var carousels = document.querySelectorAll(".js-product-carousel");
-  [].forEach.call(carousels, function (carousel) {
-    carouselize(carousel);
-  });
-})();
+var menuButton = document.getElementById("menu--button");
 
-function carouselize(carousel) {
-  var productList = carousel.querySelector(".js-product-list");
-  var productListWidth = 0;
-  var productListSteps = 0;
-  var products = carousel.querySelectorAll(".product");
-  var productAmount = 0;
-  var productAmountVisible = 4; // var carouselPrev = carousel.querySelector(".js-carousel-prev");
-  // var carouselNext = carousel.querySelector(".js-carousel-next");
-  //Count all the products
-
-  [].forEach.call(products, function (product) {
-    productAmount++;
-    productListWidth += 250;
-    productList.style.width = productListWidth + "px";
-  }); // This is a bit hacky, let me know if you find a better way to do this!
-  // Move the carousels product-list
-
-  function moveProductList() {
-    productList.style.transform = "translateX(-" + 205 * productListSteps + "px)";
-  }
-
-  var intervalNextSlide = null;
-
-  var nextSlide = function nextSlide() {
-    if (productListSteps < productAmount - productAmountVisible) {
-      productListSteps++;
-      moveProductList();
+if (menuButton) {
+  menuButton.onclick = function () {
+    if (this.checked) {
+      document.getElementById("menu").classList.add("active");
     } else {
-      clearInterval(intervalNextSlide);
-      intervalPrevSlide = setInterval(prevSlide, 3000);
+      document.getElementById("menu").classList.remove("active");
     }
   };
-
-  var intervalPrevSlide = null;
-
-  var prevSlide = function prevSlide() {
-    if (productListSteps > 0) {
-      productListSteps--;
-      moveProductList();
-    } else {
-      clearInterval(intervalPrevSlide);
-      intervalNextSlide = setInterval(nextSlide, 3000);
-    }
-  };
-
-  intervalNextSlide = setInterval(nextSlide, 3000);
-  carousel.querySelector(".carousel__view").style.display = "block";
 }
-
-/***/ }),
-
-/***/ "./resources/js/site/lead.js":
-/*!***********************************!*\
-  !*** ./resources/js/site/lead.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var formContactButton = document.getElementById("form-contact-button");
-
-if (formContactButton) {
-  formContactButton.addEventListener("click", function () {
-    var elMessageForm = document.getElementById("messages-form");
-    elMessageForm.innerHTML = "";
-
-    var __this = this;
-
-    var __form = document.getElementById("form-contact");
-
-    var __url = __form.getAttribute("action");
-
-    var formData = new FormData(document.getElementById("form-contact"));
-
-    __this.setAttribute("disabled", "disabled");
-
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", __url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.send(formData);
-
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        var __html = "";
-
-        __this.removeAttribute("disabled");
-
-        var response = JSON.parse(xhr.response);
-
-        if (typeof response.errors != "undefined") {
-          __html = '<div id="form-message" class="alert alert-danger" role="alert">';
-          __html += '<p class="alert-heading">Atenção!</p>';
-          Object.values(response.errors).map(function (errors) {
-            Object.values(errors).map(function (error) {
-              __html += "<p>" + error + "</p>";
-            });
-          });
-          __html += "</div>";
-        } else {
-          __html = '<div id="form-message" class="alert alert-success" role="alert">';
-          __html += '<p class="alert-heading">Formulário enviado com sucesso!</p>';
-          __html += "</div>";
-
-          __form.reset();
-        }
-
-        elMessageForm.innerHTML = __html;
-      }
-    };
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/site/map.js":
-/*!**********************************!*\
-  !*** ./resources/js/site/map.js ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function setIframeSrc() {
-  var map = document.getElementById("map");
-
-  if (map) {
-    var ifrm = document.createElement("iframe");
-    ifrm.setAttribute("src", map.attributes["data-src"].value);
-    ifrm.setAttribute("title", "Veja nossa entrevista no Destaque Brasil");
-    ifrm.setAttribute("frameborder", "0");
-    ifrm.setAttribute("aria-hidden", "false");
-    ifrm.setAttribute("tabindex", "0");
-    ifrm.setAttribute("defer", "defer");
-    map.appendChild(ifrm);
-  }
-}
-
-setTimeout(setIframeSrc, 3000);
 
 /***/ }),
 
