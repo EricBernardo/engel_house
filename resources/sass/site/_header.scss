@@ -1,20 +1,23 @@
 .header {
+    background-color: #363636;
+
     &--content {
         display: flex;
         align-items: center;
-        height: 95px;
-        padding: 0 10px;
-        background-color: #363636;
+        justify-content: space-between;
+        padding: 10px;
+        max-width: 1140px;
+        margin: 0 auto;
 
         @media (max-width: 768px) {
-            justify-content: space-between;
+            flex-direction: column;
         }
     }
 
     .logo {
         display: flex;
-        justify-content: center;
-        flex: 0.25;
+        justify-content: flex-start;
+        flex: 0.5;
 
         &--img {
             width: 150px;
@@ -24,56 +27,84 @@
 
     .search {
         display: flex;
-        flex: 0.5;
-        margin: 0 40px;
-
-        &--mobile {
-            display: none;
-        }
+        align-items: center;
+        justify-content: flex-end;
+        flex: 0.75;
 
         &--input {
-            padding: 5px;
+            padding: 10px;
             width: 100%;
+            max-width: 400px;
+            border: 2.5px solid #ff6600;
         }
 
         &--icon {
             display: flex;
             background-color: #ff6600;
-            padding: 5px 10px;
+            padding: 10px;
             cursor: pointer;
         }
 
         @media (max-width: 768px) {
-            display: none;
-
-            &--mobile {
-                display: flex;
-                max-width: 100%;
-            }
+            width: 100%;
         }
     }
 
     .cart {
         display: flex;
         justify-content: center;
-        flex: 0.25;
+        align-items: center;
+        color: #fff;
+        font-size: 12px;
+
+        @media (max-width: 768px) {
+            width: 200px;
+        }
 
         &--icon {
             cursor: pointer;
-            margin-left: 10px;
+            margin: 0 15px;
+            position: relative;
+
+            &-total {
+                background-color: #ff6600;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                align-items: center;
+                right: -13px;
+                top: -13px;
+                position: absolute;
+                font-size: 12px;
+                display: flex;
+                justify-content: center;
+                border: 1px solid #363636;
+            }
         }
     }
 
     .menu {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: #ff6600;
+
+        .menu--icon {
+            display: none;
+        }
+
         &--mobile {
             display: none;
             flex: 0.25;
         }
 
         &--list {
-            display: flex;
-            justify-content: center;
             background-color: #ff6600;
+            display: flex;
+            justify-content: flex-start;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 10px;
         }
 
         &--item {
@@ -98,7 +129,7 @@
         &--icon {
             cursor: pointer;
             float: right;
-            padding: 46px 20px;
+            padding: 30px 20px;
             position: relative;
             user-select: none;
 
@@ -152,23 +183,26 @@
         }
 
         @media (max-width: 768px) {
-            display: none;
+            .menu--icon {
+                display: flex;
+            }
 
             &.active {
-                position: fixed;
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-                height: calc(100vh - 95px);
-                top: 95px;
-                width: 100%;
-                background-color: rgb(0 0 0 / 50%);
-                z-index: 1;
+                .menu--list {
+                    display: flex;
+                    align-items: flex-start;
+                    position: absolute;
+                    width: 100%;
+                    z-index: 1;
+                    top: 62px;
+                }
             }
 
             &--list {
+                display: none;
                 flex-direction: column;
                 width: 100%;
+                padding: 0;
             }
 
             &--item {
@@ -177,6 +211,11 @@
 
             &--mobile {
                 display: flex;
+                background-color: #363636;
+
+                .menu--icon {
+                    background-color: #ff6600;
+                }
             }
         }
     }
