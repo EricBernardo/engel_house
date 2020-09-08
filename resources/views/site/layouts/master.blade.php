@@ -50,6 +50,18 @@
 
         @include('site/includes/banner')
 
+        @include('site/includes/carousel', ['title' => 'Produtos Mais Vendidos'])
+
+        @include('site/includes/carousel', ['title' => 'Produtos Recomendados'])
+
+        @include('site/includes/carousel', ['title' => 'Produtos Recentes'])
+
+        <footer class="footer">
+            @if($setting && $setting['copyright'])
+                <p>{{ $setting['copyright'] }}</p>
+            @endif
+        </footer>
+
         <script async src="{{ URL::asset('/js/site/app.js?v=') . env('APP_VERSION') }}"></script>
 
     </body>
