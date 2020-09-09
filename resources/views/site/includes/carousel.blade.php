@@ -2,15 +2,15 @@
     <div class="carousel">
     <div class="carousel--title"><span>{{$title}}</span></div>
         <div class="carousel--products owl-carousel owl-theme">
-            @for($i = 0; $i < 10; $i++)
+            @foreach($products as $i => $item)
             <div class="carousel--product">
-                <a href="#">
-                    <img class="carousel--product-img" src="https://demo.shopperwp.io/shopperpro/wp-content/uploads/2013/06/cd_6_angle-300x300.jpg" alt="">
-                    <p class="carousel--product-title">Woo Album #{{$i}}</p>
+            <a href="{{ url('produtos/' . $item['slug'])}}">
+                    <img class="carousel--product-img" src="{{ URL::asset('storage/' . (isMobile() ? $item['image_mobile'] : $item['image']))}}" alt="{{ $item['title'] }}" title="{{ $item['title'] }}">
+                    <p class="carousel--product-title">{{$item['title']}}</p>
                     <p class="carousel--product-price">R$ {{$i}}2,90</p>
                 </a>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </section>

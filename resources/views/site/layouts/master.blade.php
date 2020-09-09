@@ -20,7 +20,7 @@
 
             <meta name="description" content="{{ $seo['description'] }}">
 
-            <meta name="keywords" content="{{ $seo['keywords'] }}">
+            {{-- <meta name="keywords" content="{{ $seo['keywords'] }}"> --}}
 
             <meta property="og:title" content="{{ $seo['title'] }}" />
 
@@ -48,13 +48,9 @@
 
         @include('site/includes/header')
 
-        @include('site/includes/banner')
-
-        @include('site/includes/carousel', ['title' => 'Produtos Mais Vendidos'])
-
-        @include('site/includes/carousel', ['title' => 'Produtos Recomendados'])
-
-        @include('site/includes/carousel', ['title' => 'Produtos Recentes'])
+        <div class="container">
+            @yield('content')
+        </div>
 
         <footer class="footer">
             @if($setting && $setting['copyright'])

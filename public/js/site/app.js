@@ -14466,6 +14466,69 @@ $(document).ready(function () {
     }
   });
 });
+var sizes = document.querySelectorAll(".size");
+var colors = document.querySelectorAll(".color");
+var shoes = document.querySelectorAll(".shoe");
+var gradients = document.querySelectorAll(".gradient");
+var shoeBg = document.querySelector(".shoeBackground");
+var prevColor = "blue";
+var animationEnd = true;
+
+function changeSize() {
+  sizes.forEach(function (size) {
+    return size.classList.remove("active");
+  });
+  this.classList.add("active");
+}
+
+function changeColor() {
+  if (!animationEnd) return;
+  var primary = this.getAttribute("primary");
+  var color = this.getAttribute("color");
+  var shoe = document.querySelector(".shoe[color=\"".concat(color, "\"]"));
+  var gradient = document.querySelector(".gradient[color=\"".concat(color, "\"]"));
+  var prevGradient = document.querySelector(".gradient[color=\"".concat(prevColor, "\"]"));
+  if (color == prevColor) return;
+  colors.forEach(function (c) {
+    return c.classList.remove("active");
+  });
+  this.classList.add("active");
+  document.documentElement.style.setProperty("--primary", primary);
+  shoes.forEach(function (s) {
+    return s.classList.remove("show");
+  });
+  shoe.classList.add("show");
+  gradients.forEach(function (g) {
+    return g.classList.remove("first", "second");
+  });
+  gradient.classList.add("first");
+  prevGradient.classList.add("second");
+  prevColor = color;
+  animationEnd = false;
+  gradient.addEventListener("animationend", function () {
+    animationEnd = true;
+  });
+}
+
+sizes.forEach(function (size) {
+  return size.addEventListener("click", changeSize);
+});
+colors.forEach(function (c) {
+  return c.addEventListener("click", changeColor);
+});
+var x = window.matchMedia("(max-width: 1000px)");
+
+function changeHeight() {
+  if (x.matches) {
+    var shoeHeight = shoes[0].offsetHeight;
+    shoeBg.style.height = "".concat(shoeHeight * 0.9, "px");
+  } else {
+    shoeBg.style.height = "475px";
+  }
+}
+
+changeHeight();
+window.addEventListener("resize", changeHeight);
 
 /***/ }),
 
