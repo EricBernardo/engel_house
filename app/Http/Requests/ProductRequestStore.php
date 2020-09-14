@@ -24,6 +24,7 @@ class ProductRequestStore extends FormRequest
     public function rules()
     {
         return [
+            'category_id' => 'required',
             'title' => 'required',
             'description' => 'required',
             'order' => 'required',

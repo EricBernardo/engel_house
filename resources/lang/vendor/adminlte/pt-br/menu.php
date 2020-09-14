@@ -4,6 +4,7 @@ return [
     'banners' => 'Banners',
     'home_products' => 'Destaques',
     'services' => 'Serviços',
+    'categories' => 'Categorias',
     'products' => 'Produtos',
     'abouts' => 'Quem somos',
     'teams' => 'Nossa equipe',

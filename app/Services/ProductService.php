@@ -21,6 +21,7 @@ class ProductService extends DefaultService
         $image_mobile = $this->uploadFile($request, 'abouts', 'image_mobile');
 
         $this->model->insert([
+            'category_id' => $request->get('category_id'),
             'slug' => Str::slug($request->get('title'), '-'),
             'title' => $request->get('title'),
             'description' => $request->get('description'),
@@ -41,6 +42,7 @@ class ProductService extends DefaultService
         $entity = $this->model->find($id);
 
         $data = [
+            'category_id' => $request->get('category_id'),
             'slug' => Str::slug($request->get('title'), '-'),
             'title' => $request->get('title'),
             'description' => $request->get('description'),

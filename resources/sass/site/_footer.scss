@@ -1,8 +1,8 @@
 .footer {
-    background: #161616;
+    background: $black;
     text-align: center;
     padding: 50px;
-    color: #fff;
+    color: $white;
 
     @media (max-width: 768px) {
         padding: 20px;

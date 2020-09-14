@@ -1,0 +1,73 @@
+@import "./_header";
+@import "./_form";
+@import "./_map";
+
+form input,
+form textarea {
+    padding: 20px;
+    border: 1px solid $gray;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+form button {
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
+    background-color: $orange;
+    color: $white;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 1px solid $black;
+
+    &[disabled] {
+        opacity: 0.7;
+    }
+}
+
+section {
+    position: relative;
+}
+
+h2,
+h3 {
+    font-weight: normal;
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.alert-heading {
+    color: inherit;
+    font-size: 14px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-success hr {
+    border-top-color: #b1dfbb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-danger hr {
+    border-top-color: #f1b0b7;
+}

@@ -48,9 +48,13 @@
 
         @include('site/includes/header')
 
+        @include('site/includes/keywords')
+
         <div class="container">
             @yield('content')
         </div>
+
+        @include('site/includes/map')
 
         <footer class="footer">
             @if($setting && $setting['copyright'])

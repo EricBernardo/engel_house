@@ -97,7 +97,7 @@ return [
     |
     | For more detailed instructions you can look here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/#66-classes
-    | 
+    |
     */
 
     'classes_body' => '',
@@ -226,6 +226,11 @@ return [
         [
             'text'        => 'services',
             'url'         => 'admin/services',
+            'icon'        => 'far fa-fw fa-circle'
+        ],
+        [
+            'text'        => 'categories',
+            'url'         => 'admin/categories',
             'icon'        => 'far fa-fw fa-circle'
         ],
         [

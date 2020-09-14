@@ -1,0 +1,20 @@
+.keywords {
+    &__view {
+        display: none;
+        background: $orange-dark;
+        overflow: hidden;
+        border-top: 1px solid $black;
+    }
+}
+.keywords-list {
+    display: flex;
+    transition: transform 0.3s;
+    transform: translateX(0px);
+    list-style: none;
+
+    &__item {
+        padding: 10px;
+        color: $white;
+        font-size: 12px;
+    }
+}

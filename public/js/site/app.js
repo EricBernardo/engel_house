@@ -14436,6 +14436,10 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(/*! ./map */ "./resources/js/site/map.js");
+
+__webpack_require__(/*! ./keywords */ "./resources/js/site/keywords.js");
+
 var menuButton = document.getElementById("menu--button");
 
 if (menuButton) {
@@ -14466,69 +14470,97 @@ $(document).ready(function () {
     }
   });
 });
-var sizes = document.querySelectorAll(".size");
-var colors = document.querySelectorAll(".color");
-var shoes = document.querySelectorAll(".shoe");
-var gradients = document.querySelectorAll(".gradient");
-var shoeBg = document.querySelector(".shoeBackground");
-var prevColor = "blue";
-var animationEnd = true;
 
-function changeSize() {
-  sizes.forEach(function (size) {
-    return size.classList.remove("active");
+/***/ }),
+
+/***/ "./resources/js/site/keywords.js":
+/*!***************************************!*\
+  !*** ./resources/js/site/keywords.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+(function () {
+  var carousels = document.querySelectorAll(".js-keywords-carousel");
+  [].forEach.call(carousels, function (carousel) {
+    carouselize(carousel);
   });
-  this.classList.add("active");
+})();
+
+function carouselize(carousel) {
+  var keywordList = carousel.querySelector(".js-keywords-list");
+  var keywordListWidth = 0;
+  var keywordListSteps = 0;
+  var keywords = carousel.querySelectorAll(".keywords");
+  var keywordAmount = 0;
+  var keywordAmountVisible = 4; // var carouselPrev = carousel.querySelector(".js-carousel-prev");
+  // var carouselNext = carousel.querySelector(".js-carousel-next");
+  //Count all the keywords
+
+  [].forEach.call(keywords, function (keyword) {
+    keywordAmount++;
+    keywordListWidth += 250;
+    keywordList.style.width = keywordListWidth + "px";
+  }); // This is a bit hacky, let me know if you find a better way to do this!
+  // Move the carousels keywords-list
+
+  function movekeywordList() {
+    keywordList.style.transform = "translateX(-" + 205 * keywordListSteps + "px)";
+  }
+
+  var intervalNextSlide = null;
+
+  var nextSlide = function nextSlide() {
+    if (keywordListSteps < keywordAmount - keywordAmountVisible) {
+      keywordListSteps++;
+      movekeywordList();
+    } else {
+      clearInterval(intervalNextSlide);
+      intervalPrevSlide = setInterval(prevSlide, 3000);
+    }
+  };
+
+  var intervalPrevSlide = null;
+
+  var prevSlide = function prevSlide() {
+    if (keywordListSteps > 0) {
+      keywordListSteps--;
+      movekeywordList();
+    } else {
+      clearInterval(intervalPrevSlide);
+      intervalNextSlide = setInterval(nextSlide, 3000);
+    }
+  };
+
+  intervalNextSlide = setInterval(nextSlide, 3000);
+  carousel.querySelector(".keywords__view").style.display = "block";
 }
 
-function changeColor() {
-  if (!animationEnd) return;
-  var primary = this.getAttribute("primary");
-  var color = this.getAttribute("color");
-  var shoe = document.querySelector(".shoe[color=\"".concat(color, "\"]"));
-  var gradient = document.querySelector(".gradient[color=\"".concat(color, "\"]"));
-  var prevGradient = document.querySelector(".gradient[color=\"".concat(prevColor, "\"]"));
-  if (color == prevColor) return;
-  colors.forEach(function (c) {
-    return c.classList.remove("active");
-  });
-  this.classList.add("active");
-  document.documentElement.style.setProperty("--primary", primary);
-  shoes.forEach(function (s) {
-    return s.classList.remove("show");
-  });
-  shoe.classList.add("show");
-  gradients.forEach(function (g) {
-    return g.classList.remove("first", "second");
-  });
-  gradient.classList.add("first");
-  prevGradient.classList.add("second");
-  prevColor = color;
-  animationEnd = false;
-  gradient.addEventListener("animationend", function () {
-    animationEnd = true;
-  });
-}
+/***/ }),
 
-sizes.forEach(function (size) {
-  return size.addEventListener("click", changeSize);
-});
-colors.forEach(function (c) {
-  return c.addEventListener("click", changeColor);
-});
-var x = window.matchMedia("(max-width: 1000px)");
+/***/ "./resources/js/site/map.js":
+/*!**********************************!*\
+  !*** ./resources/js/site/map.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-function changeHeight() {
-  if (x.matches) {
-    var shoeHeight = shoes[0].offsetHeight;
-    shoeBg.style.height = "".concat(shoeHeight * 0.9, "px");
-  } else {
-    shoeBg.style.height = "475px";
+function setIframeSrc() {
+  var map = document.getElementById("map");
+
+  if (map) {
+    var ifrm = document.createElement("iframe");
+    ifrm.setAttribute("src", map.attributes["data-src"].value);
+    ifrm.setAttribute("title", "Veja nossa entrevista no Destaque Brasil");
+    ifrm.setAttribute("frameborder", "0");
+    ifrm.setAttribute("aria-hidden", "false");
+    ifrm.setAttribute("tabindex", "0");
+    ifrm.setAttribute("defer", "defer");
+    map.appendChild(ifrm);
   }
 }
 
-changeHeight();
-window.addEventListener("resize", changeHeight);
+setTimeout(setIframeSrc, 3000);
 
 /***/ }),
 

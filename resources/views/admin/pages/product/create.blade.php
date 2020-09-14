@@ -15,6 +15,15 @@
                         enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
+                            <label for="inputTitle">Categoria</label>
+                            <select name="category_id" class="form-control">
+                                <option value="">Selecione</option>
+                                @foreach ($categories as $item)
+                                    <option value="{{ $item['id'] }}">{{ $item['title'] }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="inputTitle">Título</label>
                             <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Título" value="{{ request()->old('title') }}">
                         </div>

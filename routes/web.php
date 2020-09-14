@@ -32,9 +32,9 @@ use Illuminate\Support\Facades\URL;
 
 $getRequestUri = request()->getRequestUri();
 
-if(strpos($getRequestUri, '/public') !== false) {    
-  header('Location: https://www.artefatosdecimentoportao.com.br' . str_replace('/public', '', $getRequestUri), true, 301);        
-  die("Aguarde...");
+if (strpos($getRequestUri, '/public') !== false) {
+    header('Location: https://www.artefatosdecimentoportao.com.br' . str_replace('/public', '', $getRequestUri), true, 301);
+    die("Aguarde...");
 }
 
 Route::get('/', 'HomeController@index')->name('home.index');
@@ -46,15 +46,15 @@ Route::get('/contato', 'ContactController@index')->name('contacts.index');
 
 Route::post('/lead', 'LeadController@store')->name('leads.store');
 
-Route::get('manifest.json', function() {
+Route::get('manifest.json', function () {
     return [
-      "name" => "Artefatos de Cimento Portão",
-      "short_name" => "AC Portão",
-      "theme_color" => "#FF4C00",
-      "background_color" => "#FFFFFF",
-      "display" => "standalone",
-      "scope" => "/",
-      "start_url" => "/"
+        "name" => "Artefatos de Cimento Portão",
+        "short_name" => "AC Portão",
+        "theme_color" => "#FF4C00",
+        "background_color" => "#FFFFFF",
+        "display" => "standalone",
+        "scope" => "/",
+        "start_url" => "/"
     ];
 });
 
@@ -113,6 +113,13 @@ Route::post('admin/products/store', 'Auth\ProductController@store')->name('produ
 Route::get('admin/products/show/{id}', 'Auth\ProductController@show')->name('products.show');
 Route::put('admin/products/update/{id}', 'Auth\ProductController@update')->name('products.update');
 Route::delete('admin/products/delete/{id}', 'Auth\ProductController@delete')->name('products.delete');
+
+Route::get('admin/categories', 'Auth\CategoryController@index')->name('categories.index');
+Route::get('admin/categories/create', 'Auth\CategoryController@create')->name('categories.create');
+Route::post('admin/categories/store', 'Auth\CategoryController@store')->name('categories.store');
+Route::get('admin/categories/show/{id}', 'Auth\CategoryController@show')->name('categories.show');
+Route::put('admin/categories/update/{id}', 'Auth\CategoryController@update')->name('categories.update');
+Route::delete('admin/categories/delete/{id}', 'Auth\CategoryController@delete')->name('categories.delete');
 
 Route::get('admin/abouts', 'Auth\AboutController@index')->name('abouts.index');
 Route::get('admin/abouts/create', 'Auth\AboutController@create')->name('abouts.create');
