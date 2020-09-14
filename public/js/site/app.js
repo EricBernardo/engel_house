@@ -14436,9 +14436,15 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
+__webpack_require__(/*! owl.carousel */ "./node_modules/owl.carousel/dist/owl.carousel.js");
+
 __webpack_require__(/*! ./map */ "./resources/js/site/map.js");
 
 __webpack_require__(/*! ./keywords */ "./resources/js/site/keywords.js");
+
+__webpack_require__(/*! ./product_details */ "./resources/js/site/product_details.js");
 
 var menuButton = document.getElementById("menu--button");
 
@@ -14451,10 +14457,6 @@ if (menuButton) {
     }
   };
 }
-
-window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-__webpack_require__(/*! owl.carousel */ "./node_modules/owl.carousel/dist/owl.carousel.js");
 
 $(document).ready(function () {
   $(".owl-carousel").owlCarousel({
@@ -14561,6 +14563,30 @@ function setIframeSrc() {
 }
 
 setTimeout(setIframeSrc, 3000);
+
+/***/ }),
+
+/***/ "./resources/js/site/product_details.js":
+/*!**********************************************!*\
+  !*** ./resources/js/site/product_details.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $(".product_details__carousel").owlCarousel({
+    autoplay: true,
+    nav: false,
+    responsive: {
+      0: {
+        items: 4
+      },
+      768: {
+        items: 5
+      }
+    }
+  });
+});
 
 /***/ }),
 

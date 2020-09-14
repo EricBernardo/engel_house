@@ -4,8 +4,6 @@
 
 @section('content')
 
-@include('site/includes/form', ['class' => 'form-contact'])
-
 <section>
     <div class="contact">
         <div class="contact__items">
@@ -23,5 +21,7 @@
         </div>
     </div>
 </section>
+
+@include('site/includes/form', ['class' => 'form-contact'])
 
 @stop

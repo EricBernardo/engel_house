@@ -62,8 +62,10 @@
     }
 
     &--product {
-        padding: 0 10px;
+        padding: 10px;
         text-align: center;
+        border: 1px solid transparent;
+        border-radius: 5px;
 
         &-title,
         &-price {
@@ -78,6 +80,27 @@
         &-price {
             color: $orange;
             font-weight: bold;
+        }
+
+        &-see-more {
+            background-color: $orange;
+            color: $white;
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            text-transform: uppercase;
+            opacity: 1;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        &:hover {
+            border: 1px solid $gray;
+
+            .carousel--product-see-more {
+                background-color: $orange-dark;
+            }
         }
     }
 

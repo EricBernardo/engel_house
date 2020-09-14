@@ -5,11 +5,9 @@
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-top: 0px;
-    padding-bottom: 40px;
+    padding: 20px;
     text-align: center;
+    background-color: $gray;
 
     &__items {
         display: flex;

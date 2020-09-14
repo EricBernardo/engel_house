@@ -1,5 +1,9 @@
+window.$ = window.jQuery = require("jquery");
+
+require("owl.carousel");
 require("./map");
 require("./keywords");
+require("./product_details");
 
 const menuButton = document.getElementById("menu--button");
 
@@ -12,10 +16,6 @@ if (menuButton) {
         }
     };
 }
-
-window.$ = window.jQuery = require("jquery");
-
-require("owl.carousel");
 
 $(document).ready(function () {
     $(".owl-carousel").owlCarousel({

@@ -20,8 +20,7 @@ class ContactController extends Controller
         ContactService $serviceContact,
         SettingService $serviceSetting,
         SeoService $serviceSeo
-    )
-    {
+    ) {
 
         $this->serviceContact = $serviceContact;
         $this->serviceSetting = $serviceSetting;
