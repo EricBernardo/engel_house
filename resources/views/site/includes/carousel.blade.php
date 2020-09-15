@@ -1,7 +1,7 @@
 <section>
     <div class="carousel">
-    <div class="carousel--title"><span>{{$title}}</span></div>
-        <div class="carousel--products owl-carousel owl-theme">
+        <div class="carousel--title"><span>{{$title}}</span></div>
+        <div class="carousel--products owl-carousel">
 
             @foreach($products as $i => $item)
                 @for ($i = 0; $i < 10; $i++)

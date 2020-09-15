@@ -21,13 +21,6 @@ $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
         autoplay: true,
         nav: true,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            768: {
-                items: 4,
-            },
-        },
+        items: window.outerWidth > 768 ? 4 : 1,
     });
 });

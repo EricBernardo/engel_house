@@ -9,14 +9,8 @@
     padding-right: 10px;
     padding-top: 40px;
     padding-bottom: 40px;
-
-    &.form-home {
-        padding-top: 0px;
-    }
-
-    &.form-product {
-        background: $black;
-    }
+    background: $black;
+    color: $white;
 
     button {
         cursor: pointer;
@@ -24,7 +18,7 @@
 
     label {
         font-weight: bold;
-        color: $gray-dark;
+        color: $gray;
         margin: 5px 2px;
         float: left;
     }
@@ -58,8 +52,9 @@
             padding-bottom: 20px;
         }
 
-        p {
-            color: $gray-dark;
+        p,
+        a {
+            color: $gray;
         }
 
         .phone {

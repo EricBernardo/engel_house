@@ -20,8 +20,7 @@ class ProductController extends Controller
         ProductService $serviceProduct,
         SettingService $serviceSetting,
         SeoService $serviceSeo
-    )
-    {
+    ) {
 
         $this->serviceProduct = $serviceProduct;
         $this->serviceSetting = $serviceSetting;
@@ -48,10 +47,11 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = $this->serviceProduct->findSlug($slug);
-        $setting = $this->serviceSetting->first();        
+        $setting = $this->serviceSetting->first();
         $seo = $this->serviceSeo->getSeo();
-        
-        if($product) {
+        $products = $this->serviceProduct->all();
+
+        if ($product) {
             $seo['title'] = $product['title'] . ' | Produtos | ' . $setting['name_site'];
             $seo['description'] = $product['description'];
             $seo['image'] = $product['image'];
@@ -60,7 +60,8 @@ class ProductController extends Controller
         return view('site/pages/product_show', compact(
             'setting',
             'product',
-            'seo'
+            'seo',
+            'products'
         ));
     }
 }

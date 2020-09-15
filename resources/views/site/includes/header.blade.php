@@ -40,7 +40,6 @@
         </label>
         <ul class="menu--list">
             <li class="menu--item menu--item-active"><a href="{{ url('/') }}">Página inicial</a></li>
-            <li class="menu--item"><a href="{{ url('/produtos') }}">Produtos</a></li>
             <li class="menu--item"><a href="{{ url('/contato') }}">Contato</a></li>
         </ul>
     </nav>
