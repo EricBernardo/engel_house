@@ -121,6 +121,13 @@ Route::get('admin/categories/show/{id}', 'Auth\CategoryController@show')->name('
 Route::put('admin/categories/update/{id}', 'Auth\CategoryController@update')->name('categories.update');
 Route::delete('admin/categories/delete/{id}', 'Auth\CategoryController@delete')->name('categories.delete');
 
+Route::get('admin/subcategories', 'Auth\SubCategoryController@index')->name('subcategories.index');
+Route::get('admin/subcategories/create', 'Auth\SubCategoryController@create')->name('subcategories.create');
+Route::post('admin/subcategories/store', 'Auth\SubCategoryController@store')->name('subcategories.store');
+Route::get('admin/subcategories/show/{id}', 'Auth\SubCategoryController@show')->name('subcategories.show');
+Route::put('admin/subcategories/update/{id}', 'Auth\SubCategoryController@update')->name('subcategories.update');
+Route::delete('admin/subcategories/delete/{id}', 'Auth\SubCategoryController@delete')->name('subcategories.delete');
+
 Route::get('admin/abouts', 'Auth\AboutController@index')->name('abouts.index');
 Route::get('admin/abouts/create', 'Auth\AboutController@create')->name('abouts.create');
 Route::post('admin/abouts/store', 'Auth\AboutController@store')->name('abouts.store');

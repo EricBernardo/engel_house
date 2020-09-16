@@ -5,6 +5,7 @@ return [
     'home_products' => 'Destaques',
     'services' => 'Serviços',
     'categories' => 'Categorias',
+    'subcategories' => 'SubCategorias',
     'products' => 'Produtos',
     'abouts' => 'Quem somos',
     'teams' => 'Nossa equipe',

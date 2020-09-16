@@ -17,6 +17,19 @@
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="PUT">
                         <div class="form-group">
+                            <label>SubCategoria</label>
+                            <select name="subcategory_id" class="form-control">
+                                <option value="">Selecione</option>
+                                @foreach ($categories as $category)
+                                    <optgroup label="{{ $category['title'] }}">
+                                        @foreach ($category->subcategories as $subcategory)
+                                    <option {{ $subcategory['id'] == $item['subcategory_id'] ? 'selected' : '' }} value="{{ $subcategory['id'] }}">{{ $subcategory['title'] }}</option>
+                                        @endforeach
+                                    </optgroup>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="inputTitle">Título</label>
                             <input type="text" name="title" class="form-control" id="inputTitle" placeholder="Título"
                                 value="{{ $item['title'] }}">
@@ -48,6 +61,11 @@
                         <div class="form-group">
                             <label for="inputDescription">Descrição</label>
                             <textarea name="description" id="inputDescription" rows="5" class="form-control" placeholder="Descrição">{{ $item['description'] }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPrice">Preço</label>
+                            <input type="text" name="price" class="form-control" id="inputPrice" placeholder="Ordem"
+                                value="{{ $item['price'] }}">
                         </div>
                         <div class="form-group">
                             <label for="inputOrder">Ordem</label>

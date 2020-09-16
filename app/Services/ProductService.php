@@ -21,11 +21,12 @@ class ProductService extends DefaultService
         $image_mobile = $this->uploadFile($request, 'abouts', 'image_mobile');
 
         $this->model->insert([
-            'category_id' => $request->get('category_id'),
+            'subcategory_id' => $request->get('subcategory_id'),
             'slug' => Str::slug($request->get('title'), '-'),
             'title' => $request->get('title'),
             'description' => $request->get('description'),
             'order' => $request->get('order'),
+            'price' => $request->get('price'),
             'image' => $image,
             'image_mobile' => $image_mobile,
             'status' => $request->get('status') == '1' ? true : false,
@@ -42,11 +43,12 @@ class ProductService extends DefaultService
         $entity = $this->model->find($id);
 
         $data = [
-            'category_id' => $request->get('category_id'),
+            'subcategory_id' => $request->get('subcategory_id'),
             'slug' => Str::slug($request->get('title'), '-'),
             'title' => $request->get('title'),
             'description' => $request->get('description'),
             'order' => $request->get('order'),
+            'price' => $request->get('price'),
             'status' => $request->get('status') == '1' ? true : false,
         ];
 

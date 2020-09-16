@@ -7,9 +7,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Listar Categoria</h3>
+                    <h3 class="card-title">Listar SubCategoria</h3>
                     <div class="card-tools">
-                        <a href="{{ route('categories.create') }}">
+                        <a href="{{ route('subcategories.create') }}">
                             <button type="submit" class="btn btn-success btn-sm">
                                 <i class="fas fa-plus-circle"></i>
                                 Adicionar
@@ -23,7 +23,8 @@
                         <thead>
                             <tr>
                                 <th width="10%">#</th>
-                                <th width="40%">Título</th>
+                                <th width="20%">Categoria</th>
+                                <th width="20%">Título</th>
                                 <th width="20%">Ordem</th>
                                 <th width="20%">Status</th>
                                 <th width="10%">-</th>
@@ -34,17 +35,18 @@
                             @foreach($items as $item)
                                 <tr>
                                     <td>{{ $item['id'] }}</td>
+                                    <td>{{ $item->category['title'] }}</td>
                                     <td>{{ $item['title'] }}</td>
                                     <td>{{ $item['order'] }}</td>
                                     <td>{{ $item['status'] ? 'Ativo' : 'Inativo' }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('categories.show', ['id' => $item['id']]) }}"
+                                        <a href="{{ route('subcategories.show', ['id' => $item['id']]) }}"
                                             class="btn btn-sm btn-info">Editar</a>
                                     </td>
                                     <td>
                                         <button type="button"
-                                            onclick="confirmDelete('{{ route('categories.delete', ['id' => $item['id']]) }}')"
+                                            onclick="confirmDelete('{{ route('subcategories.delete', ['id' => $item['id']]) }}')"
                                             class="btn btn-sm btn-danger">Excluir</button>
                                     </td>
                                 </tr>

@@ -15,11 +15,15 @@
                         enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label for="inputTitle">Categoria</label>
-                            <select name="category_id" class="form-control">
+                            <label>SubCategoria</label>
+                            <select name="subcategory_id" class="form-control">
                                 <option value="">Selecione</option>
-                                @foreach ($categories as $item)
-                                    <option value="{{ $item['id'] }}">{{ $item['title'] }}</option>
+                                @foreach ($categories as $category)
+                                    <optgroup label="{{ $category['title'] }}">
+                                        @foreach ($category->subcategories as $subcategory)
+                                    <option value="{{ $subcategory['id'] }}">{{ $subcategory['title'] }}</option>
+                                        @endforeach
+                                    </optgroup>
                                 @endforeach
                             </select>
                         </div>
@@ -46,6 +50,11 @@
                         <div class="form-group">
                             <label for="inputDescription">Descrição</label>
                             <textarea name="description" id="inputDescription" rows="5" class="form-control" placeholder="Descrição">{{ request()->old('description') }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPrice">Preço</label>
+                            <input type="text" name="price" class="form-control" id="inputPrice" placeholder="Preço"
+                                value="{{ request()->old('price') }}">
                         </div>
                         <div class="form-group">
                             <label for="inputOrder">Ordem</label>

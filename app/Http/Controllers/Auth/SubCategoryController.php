@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProductRequestStore;
-use App\Http\Requests\ProductRequestUpdate;
-use App\Services\ProductService;
+use App\Http\Requests\SubCategoryRequestStore;
+use App\Http\Requests\SubCategoryRequestUpdate;
 use App\Services\CategoryService;
+use App\Services\SubCategoryService;
 
-class ProductController extends Controller
+class SubCategoryController extends Controller
 {
 
     private $service;
     private $serviceCategory;
 
-    public function __construct(ProductService $service, CategoryService $serviceCategory)
+    public function __construct(SubCategoryService $service, CategoryService $serviceCategory)
     {
         $this->middleware('auth');
         $this->service = $service;
@@ -24,29 +24,28 @@ class ProductController extends Controller
     public function index()
     {
         $items = $this->service->paginate();
-        // dd($items[0]->subcategory['title']);
-        return view('admin/pages/product/index', compact('items'));
+        return view('admin/pages/subcategory/index', compact('items'));
     }
 
     public function create()
     {
         $categories = $this->serviceCategory->all();
-        return view('admin/pages/product/create', compact('categories'));
+        return view('admin/pages/subcategory/create', compact('categories'));
     }
 
-    public function store(ProductRequestStore $request)
+    public function store(SubCategoryRequestStore $request)
     {
         return $this->service->store($request);
     }
 
     public function show($id)
     {
-        $categories = $this->serviceCategory->all();
         $item = $this->service->find($id);
-        return view('admin/pages/product/show', compact('item', 'categories'));
+        $categories = $this->serviceCategory->all();
+        return view('admin/pages/subcategory/show', compact('item', 'categories'));
     }
 
-    public function update(ProductRequestUpdate $request, $id)
+    public function update(SubCategoryRequestUpdate $request, $id)
     {
         return $this->service->update($request, $id);
     }

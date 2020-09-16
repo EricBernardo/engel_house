@@ -234,6 +234,11 @@ return [
             'icon'        => 'far fa-fw fa-circle'
         ],
         [
+            'text'        => 'subcategories',
+            'url'         => 'admin/subcategories',
+            'icon'        => 'far fa-fw fa-circle'
+        ],
+        [
             'text'        => 'products',
             'url'         => 'admin/products',
             'icon'        => 'far fa-fw fa-circle'

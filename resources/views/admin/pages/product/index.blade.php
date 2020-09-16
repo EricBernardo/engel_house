@@ -23,9 +23,11 @@
                         <thead>
                             <tr>
                                 <th width="10%">#</th>
-                                <th width="20%">Slug</th>
+                                <th width="10%">Categoria</th>
+                                <th width="10%">SubCategoria</th>
                                 <th width="20%">Título</th>
                                 <th width="20%">Imagem</th>
+                                <th width="10%">Preço</th>
                                 <th width="20%">Ordem</th>
                                 <th width="20%">Status</th>
                                 <th width="10%">-</th>
@@ -36,11 +38,13 @@
                             @foreach($items as $item)
                                 <tr>
                                     <td>{{ $item['id'] }}</td>
-                                    <td>{{ $item['slug'] }}</td>
+                                    <td>{{ $item->subcategory->category['title'] }}</td>
+                                    <td>{{ $item->subcategory['title'] }}</td>
                                     <td>{{ $item['title'] }}</td>
                                     <td><img height="50px"
                                             src="{{ url("storage/{$item['image']}") }}"
                                             /></td>
+                                    <td>R$ {{ $item['price'] }}</td>
                                     <td>{{ $item['order'] }}</td>
                                     <td>{{ $item['status'] ? 'Ativo' : 'Inativo' }}
                                     </td>
