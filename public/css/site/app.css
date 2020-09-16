@@ -925,6 +925,14 @@ h3 {
   border-radius: 5px;
 }
 
+.carousel--product-img {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
 .carousel--product-title,
 .carousel--product-price {
   padding: 5px 0;
@@ -933,6 +941,9 @@ h3 {
 .carousel--product-title {
   font-size: 14px;
   color: #272727;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .carousel--product-price {

@@ -67,6 +67,14 @@
         border: 1px solid transparent;
         border-radius: 5px;
 
+        &-img {
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: hidden;
+        }
+
         &-title,
         &-price {
             padding: 5px 0;
@@ -75,6 +83,9 @@
         &-title {
             font-size: 14px;
             color: $black;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
 
         &-price {

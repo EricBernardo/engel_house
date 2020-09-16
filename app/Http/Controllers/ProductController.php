@@ -47,9 +47,10 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = $this->serviceProduct->findSlug($slug);
+        $related_products = $this->serviceProduct->related($product);
+
         $setting = $this->serviceSetting->first();
         $seo = $this->serviceSeo->getSeo();
-        $products = $this->serviceProduct->all();
 
         if ($product) {
             $seo['title'] = $product['title'] . ' | Produtos | ' . $setting['name_site'];
@@ -61,7 +62,7 @@ class ProductController extends Controller
             'setting',
             'product',
             'seo',
-            'products'
+            'related_products'
         ));
     }
 }

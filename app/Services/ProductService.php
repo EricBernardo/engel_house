@@ -92,4 +92,14 @@ class ProductService extends DefaultService
             ->route('products.index')
             ->with('message', 'Registro excluido com sucesso!');
     }
+
+    public function related($product)
+    {
+        return $this->model->where('status', 1)
+            ->where('id', '!=', $product['id'])
+            ->whereHas('subcategory', function ($q) use ($product) {
+                $q->where('category_id', '=', $product->subcategory->category['id']);
+            })
+            ->orderBy('order')->get();
+    }
 }
