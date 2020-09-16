@@ -44,7 +44,7 @@
                                     <td><img height="50px"
                                             src="{{ url("storage/{$item['image']}") }}"
                                             /></td>
-                                    <td>R$ {{ $item['price'] }}</td>
+                                    <td>R$ {{ formatMoney($item['price']) }}</td>
                                     <td>{{ $item['order'] }}</td>
                                     <td>{{ $item['status'] ? 'Ativo' : 'Inativo' }}
                                     </td>

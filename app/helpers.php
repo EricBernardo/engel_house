@@ -12,8 +12,13 @@ function onlyNumber($c)
 
 function summarizeText($string, $length = 120)
 {
-    if(strlen($string) > $length) {
-    	return substr($string, 0, $length) . '...';
+    if (strlen($string) > $length) {
+        return substr($string, 0, $length) . '...';
     }
     return $string;
+}
+
+function formatMoney($i)
+{
+    return number_format($i, 2, ',', '.');
 }

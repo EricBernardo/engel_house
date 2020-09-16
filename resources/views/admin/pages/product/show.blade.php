@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <label for="inputPrice">Preço</label>
                             <input type="text" name="price" class="form-control" id="inputPrice" placeholder="Ordem"
-                                value="{{ $item['price'] }}">
+                                value="{{ formatMoney($item['price']) }}">
                         </div>
                         <div class="form-group">
                             <label for="inputOrder">Ordem</label>

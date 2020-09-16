@@ -24,7 +24,6 @@ class ProductController extends Controller
     public function index()
     {
         $items = $this->service->paginate();
-        // dd($items[0]->subcategory['title']);
         return view('admin/pages/product/index', compact('items'));
     }
 

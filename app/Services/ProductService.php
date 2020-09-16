@@ -26,7 +26,7 @@ class ProductService extends DefaultService
             'title' => $request->get('title'),
             'description' => $request->get('description'),
             'order' => $request->get('order'),
-            'price' => $request->get('price'),
+            'price' => str_replace(['.', ','], ['', '.'], $request->get('price')),
             'image' => $image,
             'image_mobile' => $image_mobile,
             'status' => $request->get('status') == '1' ? true : false,
@@ -48,7 +48,7 @@ class ProductService extends DefaultService
             'title' => $request->get('title'),
             'description' => $request->get('description'),
             'order' => $request->get('order'),
-            'price' => $request->get('price'),
+            'price' => str_replace(['.', ','], ['', '.'], $request->get('price')),
             'status' => $request->get('status') == '1' ? true : false,
         ];
 

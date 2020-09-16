@@ -65,5 +65,7 @@
 <script src="{{ mix('js/adminlte.js') }}"></script>
 @endif
 @yield('load_js')
+
+<script src="{{ asset('js/admin.js') }}" defer></script>
 </body>
 </html>

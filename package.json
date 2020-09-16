@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "owl.carousel": "^2.3.4",
+        "simple-mask-money": "^3.0.1",
         "simple-parallax-js": "^5.4.0"
     }
 }
