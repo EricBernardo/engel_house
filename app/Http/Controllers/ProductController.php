@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Services\ProductService;
 use App\Services\SeoService;
 use App\Services\SettingService;
+use App\Services\CategoryService;
 
 class ProductController extends Controller
 {
@@ -19,29 +20,14 @@ class ProductController extends Controller
     public function __construct(
         ProductService $serviceProduct,
         SettingService $serviceSetting,
-        SeoService $serviceSeo
+        SeoService $serviceSeo,
+        CategoryService $serviceCategory
     ) {
 
         $this->serviceProduct = $serviceProduct;
         $this->serviceSetting = $serviceSetting;
         $this->serviceSeo = $serviceSeo;
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        $products = $this->serviceProduct->all();
-        $setting = $this->serviceSetting->first();
-        $seo = $this->serviceSeo->getSeo();
-        return view('site/pages/products', compact(
-            'setting',
-            'products',
-            'seo'
-        ));
+        $this->serviceCategory = $serviceCategory;
     }
 
     public function show($slug)
@@ -51,6 +37,7 @@ class ProductController extends Controller
 
         $setting = $this->serviceSetting->first();
         $seo = $this->serviceSeo->getSeo();
+        $categories = $this->serviceCategory->all();
 
         if ($product) {
             $seo['title'] = $product['title'] . ' | Produtos | ' . $setting['name_site'];
@@ -62,7 +49,8 @@ class ProductController extends Controller
             'setting',
             'product',
             'seo',
-            'related_products'
+            'related_products',
+            'categories'
         ));
     }
 }

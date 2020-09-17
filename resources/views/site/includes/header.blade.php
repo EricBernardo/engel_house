@@ -40,6 +40,12 @@
         </label>
         <ul class="menu--list">
             <li class="menu--item menu--item-active"><a href="{{ url('/') }}">Página inicial</a></li>
+
+            @foreach ($categories as $category)
+            <li class="menu--item">
+                <a href="{{ url('c/' . $category['slug']) }}">{{ $category['title'] }}</a>
+            </li>
+            @endforeach
             <li class="menu--item"><a href="{{ url('/contato') }}">Contato</a></li>
         </ul>
     </nav>

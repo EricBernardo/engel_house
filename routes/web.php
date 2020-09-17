@@ -38,11 +38,11 @@ if (strpos($getRequestUri, '/public') !== false) {
 }
 
 Route::get('/', 'HomeController@index')->name('home.index');
-Route::get('/produtos', 'ProductController@index')->name('products.index');
-Route::get('/produtos/{slug}', 'ProductController@show')->name('products.show');
-Route::get('/quem-somos', 'AboutController@index')->name('abouts.index');
-Route::get('/equipe', 'TeamController@index')->name('teams.index');
-Route::get('/contato', 'ContactController@index')->name('contacts.index');
+Route::get('c/{slug}', 'CategoryController@index')->name('categories.index');
+Route::get('p/{slug}', 'ProductController@show')->name('products.show');
+Route::get('quem-somos', 'AboutController@index')->name('abouts.index');
+Route::get('equipe', 'TeamController@index')->name('teams.index');
+Route::get('contato', 'ContactController@index')->name('contacts.index');
 
 Route::post('/lead', 'LeadController@store')->name('leads.store');
 

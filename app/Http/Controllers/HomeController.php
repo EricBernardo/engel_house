@@ -7,6 +7,7 @@ use App\Services\ProductService;
 use App\Services\SeoService;
 use App\Services\SettingService;
 use App\Services\HomeProductService;
+use App\Services\CategoryService;
 
 class HomeController extends Controller
 {
@@ -16,6 +17,7 @@ class HomeController extends Controller
     private $serviceSeo;
     private $serviceProduct;
     private $serviceHomeProduct;
+    private $serviceCategory;
 
     /**
      * Create a new controller instance.
@@ -27,7 +29,8 @@ class HomeController extends Controller
         SettingService $serviceSetting,
         SeoService $serviceSeo,
         ProductService $serviceProduct,
-        HomeProductService $serviceHomeProduct
+        HomeProductService $serviceHomeProduct,
+        CategoryService $serviceCategory
     ) {
 
         $this->serviceBanner = $serviceBanner;
@@ -35,6 +38,7 @@ class HomeController extends Controller
         $this->serviceSeo = $serviceSeo;
         $this->serviceProduct = $serviceProduct;
         $this->serviceHomeProduct = $serviceHomeProduct;
+        $this->serviceCategory = $serviceCategory;
     }
 
     /**
@@ -48,13 +52,15 @@ class HomeController extends Controller
         $setting = $this->serviceSetting->first();
         $seo = $this->serviceSeo->getSeo();
         $products = $this->serviceProduct->all();
+        $categories = $this->serviceCategory->all();
         $home_products = $this->serviceHomeProduct->all();
         return view('site/pages/home', compact(
             'setting',
             'banner',
             'seo',
             'products',
-            'home_products'
+            'home_products',
+            'categories'
         ));
     }
 }

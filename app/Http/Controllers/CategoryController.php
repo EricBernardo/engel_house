@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\ContactService;
+use App\Services\ProductService;
 use App\Services\SeoService;
 use App\Services\SettingService;
 use App\Services\CategoryService;
 
-class ContactController extends Controller
+class CategoryController extends Controller
 {
 
-    private $serviceContact;
+    private $serviceProduct;
     private $serviceSetting;
     private $serviceCategory;
     /**
@@ -19,13 +19,13 @@ class ContactController extends Controller
      * @return void
      */
     public function __construct(
-        ContactService $serviceContact,
+        ProductService $serviceProduct,
         SettingService $serviceSetting,
-        SeoService $serviceSeo,
-        CategoryService $serviceCategory
+        CategoryService $serviceCategory,
+        SeoService $serviceSeo
     ) {
 
-        $this->serviceContact = $serviceContact;
+        $this->serviceProduct = $serviceProduct;
         $this->serviceSetting = $serviceSetting;
         $this->serviceSeo = $serviceSeo;
         $this->serviceCategory = $serviceCategory;
@@ -38,13 +38,13 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contact = $this->serviceContact->first();
+        $products = $this->serviceProduct->all();
+        $categories = $this->serviceCategory->all();
         $setting = $this->serviceSetting->first();
         $seo = $this->serviceSeo->getSeo();
-        $categories = $this->serviceCategory->all();
-        return view('site/pages/contact', compact(
+        return view('site/pages/categories', compact(
             'setting',
-            'contact',
+            'products',
             'seo',
             'categories'
         ));

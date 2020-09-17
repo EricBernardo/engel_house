@@ -6,7 +6,7 @@
 
                 @foreach($products as $i => $item)
                     <div class="carousel--product">
-                        <a href="{{ url('produtos/' . $item['slug'])}}">
+                        <a href="{{ url('p/' . $item['slug'])}}">
                             <div class="carousel--product-img">
                                 <img src="{{ URL::asset('storage/' . (isMobile() ? $item['image_mobile'] : $item['image']))}}" alt="{{ $item['title'] }}" title="{{ $item['title'] }}">
                             </div>
