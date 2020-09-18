@@ -870,7 +870,7 @@ h3 {
   position: relative;
   width: 100%;
   text-align: center;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 .carousel--title span {
@@ -905,7 +905,7 @@ h3 {
 
 .carousel--products .owl-nav {
   position: absolute;
-  top: -35px;
+  top: -15px;
   right: 0;
 }
 
@@ -916,6 +916,10 @@ h3 {
   padding: 0px 10px !important;
   font-size: 22px;
   margin-left: 5px;
+}
+
+.carousel--products .owl-dots {
+  display: none;
 }
 
 .carousel--product {
@@ -1056,6 +1060,106 @@ h3 {
   }
 }
 
+.categories {
+  display: flex;
+  flex-direction: row;
+}
+
+.categories--sidebar {
+  background-color: #ddd;
+  width: 100%;
+  max-width: 230px;
+  padding: 10px;
+}
+
+.categories--list {
+  list-style: none;
+}
+
+.categories--item,
+.categories--subitem {
+  border-bottom: 1px solid #272727;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+}
+
+.categories--item a,
+.categories--subitem a {
+  transition: all 0.3s ease-in-out;
+  padding: 10px 0;
+  color: #272727;
+  flex: 1;
+}
+
+.categories--item:hover,
+.categories--item.active,
+.categories--subitem:hover,
+.categories--subitem.active {
+  color: #fff;
+  background-color: #585858;
+}
+
+.categories--item:hover a,
+.categories--item.active a,
+.categories--subitem:hover a,
+.categories--subitem.active a {
+  padding: 10px;
+  color: #fff;
+}
+
+.categories--subitem a {
+  padding: 10px;
+}
+
+.categories--subitem:hover,
+.categories--subitem.active {
+  color: #fff;
+  background-color: #585858;
+}
+
+.categories--subitem:hover a,
+.categories--subitem.active a {
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.categories--products {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  padding: 20px;
+}
+
+.categories .carousel--product {
+  width: 25%;
+}
+
+.categories .carousel--product img {
+  width: auto;
+  height: 100%;
+}
+
+.categories .carousel--product-img {
+  height: 250px;
+}
+
+@media (max-width: 768px) {
+  .categories {
+    flex-direction: column;
+  }
+
+  .categories--products {
+    padding: 0;
+  }
+
+  .categories--sidebar,
+  .categories .carousel--product {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .map {
   width: 100%;
 }
@@ -1074,7 +1178,7 @@ h3 {
   flex-direction: column;
   flex-wrap: wrap;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
   text-align: center;
   background-color: #ddd;
 }
@@ -1091,7 +1195,7 @@ h3 {
 }
 
 .contact__image img {
-  height: 100%;
+  width: 100%;
   display: block;
 }
 

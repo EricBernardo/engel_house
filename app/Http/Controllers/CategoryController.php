@@ -36,8 +36,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($category_slug, $subcategory_slug = null)
     {
+
         $products = $this->serviceProduct->all();
         $categories = $this->serviceCategory->all();
         $setting = $this->serviceSetting->first();
@@ -46,7 +47,9 @@ class CategoryController extends Controller
             'setting',
             'products',
             'seo',
-            'categories'
+            'categories',
+            'category_slug',
+            'subcategory_slug'
         ));
     }
 }
