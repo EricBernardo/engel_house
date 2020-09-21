@@ -48,8 +48,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputDescription">Descrição</label>
-                            <textarea name="description" id="inputDescription" rows="5" class="form-control" placeholder="Descrição">{{ request()->old('description') }}</textarea>
+                            <label for="editorDescription">Descrição</label>
+                            <textarea name="description" id="editorDescription" rows="5" class="form-control" placeholder="Descrição">{{ request()->old('description') }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="inputPrice">Preço</label>

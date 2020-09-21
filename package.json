@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "froala-editor": "^3.2.2",
         "owl.carousel": "^2.3.4",
         "simple-mask-money": "^3.0.1",
         "simple-parallax-js": "^5.4.0"

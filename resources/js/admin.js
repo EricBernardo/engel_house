@@ -22,3 +22,9 @@ const args = {
 const input = SimpleMaskMoney.setMask("#inputPrice", args);
 
 input.formatToNumber();
+
+const FroalaEditor = require("froala-editor");
+
+import "froala-editor/js/plugins/align.min.js";
+
+new FroalaEditor("#editorDescription");
