@@ -1,4 +1,4 @@
-<?php if(isset($seo) && $seo['keywords']) : ?>
+<?php if(isset($seo['keywords']) && $seo['keywords']) : ?>
 
         <div class="keywords js-keywords-carousel">
             <div class="keywords__view">
