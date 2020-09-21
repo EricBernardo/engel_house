@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group">
                             <label for="editorDescription">Descrição</label>
-                            <textarea id="editorjs" name="description" id="editorDescription" rows="5" class="form-control" placeholder="Descrição">{{ $item['description'] }}</textarea>
+                            <textarea name="description" id="editorDescription" rows="5" class="form-control" placeholder="Descrição">{{ $item['description'] }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="inputPrice">Preço</label>
