@@ -2,6 +2,7 @@ window.$ = window.jQuery = require("jquery");
 
 require("owl.carousel");
 require("./map");
+require("./lead");
 require("./keywords");
 require("./product_details");
 

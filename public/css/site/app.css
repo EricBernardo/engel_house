@@ -56,17 +56,30 @@ a {
 }
 
 .header .search {
+  width: 100%;
+}
+
+.header .search form {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex: 0.75;
 }
 
+@media (max-width: 768px) {
+  .header .search form {
+    width: 100%;
+  }
+}
+
 .header .search--input {
-  padding: 10px;
+  padding: 0 10px;
+  margin: 0;
   width: 100%;
   max-width: 400px;
   border: 3px solid #ff6600;
+  border-radius: 0;
+  height: 41px;
 }
 
 @media (max-width: 768px) {
@@ -80,12 +93,7 @@ a {
   background-color: #ff6600;
   padding: 10px;
   cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .header .search {
-    width: 100%;
-  }
+  height: 100%;
 }
 
 .header .cart {
@@ -337,7 +345,7 @@ a {
 .form__desctiption .whatsapp {
   cursor: pointer;
   color: #fff;
-  background: #585858;
+  background: #ff6600;
   padding: 19px;
   margin-bottom: 20px;
   max-width: 250px;
@@ -358,6 +366,10 @@ a {
   top: 15px;
   left: 25px;
   position: absolute;
+}
+
+.form__desctiption .whatsapp:hover {
+  background: #cc5100;
 }
 
 .form__desctiption .facebook-link img {
@@ -497,17 +509,30 @@ h3 {
 }
 
 .header .search {
+  width: 100%;
+}
+
+.header .search form {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex: 0.75;
 }
 
+@media (max-width: 768px) {
+  .header .search form {
+    width: 100%;
+  }
+}
+
 .header .search--input {
-  padding: 10px;
+  padding: 0 10px;
+  margin: 0;
   width: 100%;
   max-width: 400px;
   border: 3px solid #ff6600;
+  border-radius: 0;
+  height: 41px;
 }
 
 @media (max-width: 768px) {
@@ -521,12 +546,7 @@ h3 {
   background-color: #ff6600;
   padding: 10px;
   cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .header .search {
-    width: 100%;
-  }
+  height: 100%;
 }
 
 .header .cart {
@@ -779,10 +799,10 @@ h3 {
 .home_products__items {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  max-width: 1230px;
+  max-width: 1300px;
   margin-top: 20px;
 }
 
@@ -1141,7 +1161,7 @@ h3 {
 }
 
 .categories .carousel--product-img {
-  height: 250px;
+  height: 300px;
 }
 
 @media (max-width: 768px) {
@@ -1300,7 +1320,7 @@ h3 {
 .form__desctiption .whatsapp {
   cursor: pointer;
   color: #fff;
-  background: #585858;
+  background: #ff6600;
   padding: 19px;
   margin-bottom: 20px;
   max-width: 250px;
@@ -1321,6 +1341,10 @@ h3 {
   top: 15px;
   left: 25px;
   position: absolute;
+}
+
+.form__desctiption .whatsapp:hover {
+  background: #cc5100;
 }
 
 .form__desctiption .facebook-link img {

@@ -38,8 +38,7 @@ if (strpos($getRequestUri, '/public') !== false) {
 }
 
 Route::get('/', 'HomeController@index')->name('home.index');
-Route::get('c/{slug}', 'CategoryController@index')->name('categories.index');
-Route::get('c/{category_slug}/{subcategory_slug}', 'CategoryController@index')->name('categories.index');
+Route::get('produtos', 'CategoryController@index')->name('categories.index');
 Route::get('p/{slug}', 'ProductController@show')->name('products.show');
 Route::get('quem-somos', 'AboutController@index')->name('abouts.index');
 Route::get('equipe', 'TeamController@index')->name('teams.index');

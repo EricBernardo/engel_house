@@ -5,16 +5,19 @@
     <section>
         <div class="categories">
             <div class="categories--sidebar">
+                @if(request()->get('q'))
+                    <p><b>Buscar por:</b> {{ request()->get('q') }}</p>
+                @endif
                 <ul class="categories--list">
                     @foreach($categories as $i => $category)
-                        <li class="categories--item {{ $category_slug == $category['slug'] ? 'active' : null }}">
-                            <a href="{{ url('c/' . $category['slug'])}}">
+                        <li class="categories--item {{ request()->get('category') == $category['slug'] ? 'active' : null }}">
+                            <a href="{{ url('produtos?category=' . $category['slug'] . '&q=' . request()->get('q'))}}">
                                 ➤ {{ $category['title'] }}
                             </a>
                         </li>
                         @foreach($category->subcategories as $i => $subcategory)
-                            <li class="categories--subitem {{ $subcategory_slug == $subcategory['slug'] ? 'active' : null }}">
-                                <a href="{{ url('c/' . $category['slug'] . '/' . $subcategory['slug'])}}">
+                            <li class="categories--subitem {{ request()->get('subcategory') == $subcategory['slug'] ? 'active' : null }}">
+                                <a href="{{ url('produtos?category=' . $category['slug'] . '&subcategory=' . $subcategory['slug'] . '&q=' . request()->get('q'))}}">
                                     ○ {{ $subcategory['title'] }}
                                 </a>
                             </li>
@@ -23,7 +26,8 @@
                 </ul>
             </div>
             <div class="categories--products">
-                @foreach($products as $i => $item)
+                @if(count($products))
+                    @foreach($products as $i => $item)
                     <div class="carousel--product">
                         <a href="{{ url('p/' . $item['slug'])}}">
                             <div class="carousel--product-img">
@@ -34,7 +38,12 @@
                             <p class="carousel--product-see-more">Veja Mais</p>
                         </a>
                     </div>
-                @endforeach
+                    @endforeach
+                @else
+                    <div class="categories-message">
+                        Resultado não encontrado.
+                    </div>
+                @endif
             </div>
         </div>
     </section>

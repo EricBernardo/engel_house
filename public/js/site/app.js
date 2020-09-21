@@ -14442,6 +14442,8 @@ __webpack_require__(/*! owl.carousel */ "./node_modules/owl.carousel/dist/owl.ca
 
 __webpack_require__(/*! ./map */ "./resources/js/site/map.js");
 
+__webpack_require__(/*! ./lead */ "./resources/js/site/lead.js");
+
 __webpack_require__(/*! ./keywords */ "./resources/js/site/keywords.js");
 
 __webpack_require__(/*! ./product_details */ "./resources/js/site/product_details.js");
@@ -14530,6 +14532,68 @@ function carouselize(carousel) {
 
   intervalNextSlide = setInterval(nextSlide, 3000);
   carousel.querySelector(".keywords__view").style.display = "block";
+}
+
+/***/ }),
+
+/***/ "./resources/js/site/lead.js":
+/*!***********************************!*\
+  !*** ./resources/js/site/lead.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var formContactButton = document.getElementById("form-contact-button");
+
+if (formContactButton) {
+  formContactButton.addEventListener("click", function () {
+    var elMessageForm = document.getElementById("messages-form");
+    elMessageForm.innerHTML = "";
+
+    var __this = this;
+
+    var __form = document.getElementById("form-contact");
+
+    var __url = __form.getAttribute("action");
+
+    var formData = new FormData(document.getElementById("form-contact"));
+
+    __this.setAttribute("disabled", "disabled");
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", __url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.send(formData);
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        var __html = "";
+
+        __this.removeAttribute("disabled");
+
+        var response = JSON.parse(xhr.response);
+
+        if (typeof response.errors != "undefined") {
+          __html = '<div id="form-message" class="alert alert-danger" role="alert">';
+          __html += '<p class="alert-heading">Atenção!</p>';
+          Object.values(response.errors).map(function (errors) {
+            Object.values(errors).map(function (error) {
+              __html += "<p>" + error + "</p>";
+            });
+          });
+          __html += "</div>";
+        } else {
+          __html = '<div id="form-message" class="alert alert-success" role="alert">';
+          __html += '<p class="alert-heading">Formulário enviado com sucesso!</p>';
+          __html += "</div>";
+
+          __form.reset();
+        }
+
+        elMessageForm.innerHTML = __html;
+      }
+    };
+  });
 }
 
 /***/ }),

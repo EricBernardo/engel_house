@@ -102,4 +102,31 @@ class ProductService extends DefaultService
             })
             ->orderBy('order')->get();
     }
+
+    public function getProducts()
+    {
+
+        $result = $this->model->where(function ($q) {
+            $q->where('status', '=', 1);
+
+            if ($result = strtolower(request()->get('q'))) {
+                $q->whereRaw('lower(title) like (?)', ["%{$result}%"]);
+            }
+        })
+            ->whereHas('subcategory', function ($q1) {
+                if ($subcategory_slug = request()->get('subcategory')) {
+                    $q1->where('slug', $subcategory_slug);
+                }
+
+                $q1->whereHas('category', function ($q2) {
+                    if ($category_slug = request()->get('category')) {
+                        $q2->where('slug', $category_slug);
+                    }
+                });
+            });
+
+
+
+        return $result->orderBy('order')->paginate();
+    }
 }

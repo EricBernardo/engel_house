@@ -36,20 +36,19 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($category_slug, $subcategory_slug = null)
+    public function index()
     {
 
-        $products = $this->serviceProduct->all();
+        $products = $this->serviceProduct->getProducts();
         $categories = $this->serviceCategory->all();
         $setting = $this->serviceSetting->first();
         $seo = $this->serviceSeo->getSeo();
+
         return view('site/pages/categories', compact(
             'setting',
             'products',
             'seo',
-            'categories',
-            'category_slug',
-            'subcategory_slug'
+            'categories'
         ));
     }
 }
