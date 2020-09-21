@@ -69,5 +69,12 @@
 @yield('load_js')
 
 <script src="{{ asset('js/admin.js') }}" defer></script>
+
+<script src="{{ asset('plugins/ckeditor/ckeditor.js') }}"></script>
+
+<script>
+    CKEDITOR.replace('editorDescription')
+</script>
+
 </body>
 </html>
