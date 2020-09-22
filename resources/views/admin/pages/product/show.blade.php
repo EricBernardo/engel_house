@@ -46,19 +46,6 @@
                                 />
                         </div>
                         <div class="form-group">
-                            <label for="inputImageMobile">Imagem mobile</label>
-                            <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" name="image_mobile" id="inputImageMobile">
-                                </div>
-                            </div>
-                            @if($item['image_mobile'])
-                                <img height="200px"
-                                src="{{ url("storage/{$item['image_mobile']}") }}"
-                                />
-                            @endif
-                        </div>
-                        <div class="form-group">
                             <label for="editorDescription">Descrição</label>
                             <textarea name="description" id="editorDescription" rows="5" class="form-control" placeholder="Descrição">{{ $item['description'] }}</textarea>
                         </div>
