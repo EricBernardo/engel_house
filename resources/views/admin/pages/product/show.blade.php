@@ -35,7 +35,7 @@
                                 value="{{ $item['title'] }}">
                         </div>
                         <div class="form-group">
-                            <label for="inputImage">Imagem</label>
+                            <label for="inputImage">Imagem (600x600px)</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" id="inputImage">

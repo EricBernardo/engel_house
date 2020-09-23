@@ -15,11 +15,11 @@ class Product extends Model
 
     protected static $imageFields = [
         'image' => [
-            'width' => 400,
+            'width' => 600,
             'height' => 600,
         ],
         'image_mobile' => [
-            'width' => 300,
+            'width' => 400,
             'height' => 400,
         ]
     ];

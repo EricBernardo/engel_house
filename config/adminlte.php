@@ -223,11 +223,11 @@ return [
             'url'         => 'admin/home_products',
             'icon'        => 'far fa-fw fa-circle'
         ],
-        [
-            'text'        => 'services',
-            'url'         => 'admin/services',
-            'icon'        => 'far fa-fw fa-circle'
-        ],
+        // [
+        //     'text'        => 'services',
+        //     'url'         => 'admin/services',
+        //     'icon'        => 'far fa-fw fa-circle'
+        // ],
         [
             'text'        => 'categories',
             'url'         => 'admin/categories',
@@ -243,16 +243,16 @@ return [
             'url'         => 'admin/products',
             'icon'        => 'far fa-fw fa-circle'
         ],
-        [
-            'text'        => 'abouts',
-            'url'         => 'admin/abouts',
-            'icon'        => 'far fa-fw fa-circle'
-        ],
-        [
-            'text'        => 'teams',
-            'url'         => 'admin/teams',
-            'icon'        => 'far fa-fw fa-circle'
-        ],
+        // [
+        //     'text'        => 'abouts',
+        //     'url'         => 'admin/abouts',
+        //     'icon'        => 'far fa-fw fa-circle'
+        // ],
+        // [
+        //     'text'        => 'teams',
+        //     'url'         => 'admin/teams',
+        //     'icon'        => 'far fa-fw fa-circle'
+        // ],
         [
             'text'        => 'contacts',
             'url'         => 'admin/contacts',
