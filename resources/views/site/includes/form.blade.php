@@ -26,22 +26,10 @@
                 <b>Ou melhor, venha nos visitar.</b>
                 <p>Nossos clientes são importantes para nós. Ficaremos contentes em receber sua visita!</p>
                 @if($setting)
-                    <!-- @if (isset($_SESSION['_source']) && $_SESSION['_source'] == 'google-ads' && $setting['whatsapp_ads'])
-                    <a rel="noreferrer" class="whatsapp" href="//api.whatsapp.com/send?phone=55{{ onlyNumber($setting['whatsapp_ads']) }}&text=&source=&data=&app_absent=" target="_blank">Envie uma mensagem</a>
-                    @else
-                    <a rel="noreferrer" class="whatsapp" href="//api.whatsapp.com/send?phone=55{{ onlyNumber($setting['whatsapp']) }}&text=&source=&data=&app_absent=" target="_blank">Envie uma mensagem</a>
-                    @endif -->
                     <a rel="noreferrer" class="whatsapp" href="//api.whatsapp.com/send?phone=55{{ onlyNumber($setting['whatsapp']) }}&text=&source=&data=&app_absent=" target="_blank">Envie uma mensagem</a>
                     <b>{{ $setting['name_site'] }}</b>
                     <p>{!! nl2br($setting['address']) !!}</p>
                     <p class="phone">
-                        <!-- @if (isset($_SESSION['_source']) && $_SESSION['_source'] == 'google-ads' && $setting['phone_ads'])
-                            <a href="tel:+55{{ onlyNumber($setting['phone_ads']) }}" target="_blank">{{ $setting['phone_ads'] }}</a> |
-                        @else
-                            <a href="tel:+55{{ onlyNumber($setting['phone_1']) }}" target="_blank">{{ $setting['phone_1'] }}</a> |
-                            <a href="tel:+55{{ onlyNumber($setting['phone_2']) }}" target="_blank">{{ $setting['phone_2'] }}</a> |
-                            <a href="tel:+55{{ onlyNumber($setting['phone_3']) }}" target="_blank">{{ $setting['phone_3'] }}</a>
-                        @endif -->
                         <a href="tel:+55{{ onlyNumber($setting['phone_1']) }}" target="_blank">{{ $setting['phone_1'] }}</a>
                     </p>
                     <p>
