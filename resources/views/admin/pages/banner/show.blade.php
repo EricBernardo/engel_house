@@ -27,7 +27,7 @@
                                 placeholder="SubTítulo" value="{{ $item['subtitle'] }}">
                         </div>
                         <div class="form-group">
-                            <label for="inputImagem">Imagem</label>
+                            <label for="inputImagem">Imagem (1920x768)</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image" id="inputImage">
@@ -38,7 +38,7 @@
                                 />
                         </div>
                         <div class="form-group">
-                            <label for="inputImageMobile">Imagem mobile</label>
+                            <label for="inputImageMobile">Imagem mobile (400x500)</label>
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" name="image_mobile" id="inputImageMobile">
