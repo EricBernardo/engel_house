@@ -48,15 +48,15 @@
                             <label for="inputWhatsapp">Whatsapp</label>
                             <input type="text" name="whatsapp" class="form-control" id="inputWhatsapp" placeholder="Whatsapp" value="{{ $item['whatsapp'] }}">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="inputWhatsappAds">Whatsapp Ads</label>
                             <input type="text" name="whatsapp_ads" class="form-control" id="inputWhatsappAds" placeholder="Whatsapp Ads" value="{{ $item['whatsapp_ads'] }}">
-                        </div>
+                         --></div>
                         <div class="form-group">
                             <label for="inputPhone1">Telefone</label>
                             <input type="text" name="phone_1" class="form-control" id="inputPhone1" placeholder="Telefone" value="{{ $item['phone_1'] }}">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="inputPhone2">Telefone 2</label>
                             <input type="text" name="phone_2" class="form-control" id="inputPhone2" placeholder="Telefone 2" value="{{ $item['phone_2'] }}">
                         </div>
@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <label for="inputPhoneAds">Telefone Ads</label>
                             <input type="text" name="phone_ads" class="form-control" id="inputPhoneAds" placeholder="Telefone Ads" value="{{ $item['phone_ads'] }}">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="inputAddress">Endereço</label>
                             <textarea name="address" id="inputAddress" rows="5" class="form-control" placeholder="Endereço">{{ $item['address'] }}</textarea>
