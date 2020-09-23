@@ -24,6 +24,10 @@ class Product extends Model
         ]
     ];
 
+    protected $fillable = [
+        'subcategory_id', 'slug', 'title', 'description', 'image', 'image_mobile', 'order', 'status', 'price', 'featured', 'views'
+    ];
+
     protected function imageUploadFilePath($file)
     {
         return Str::of($this->title)->slug('-') . '-' . uniqid(date('HisYmd')) . '.' . $file->getClientOriginalExtension();
@@ -34,9 +38,7 @@ class Product extends Model
         return 'mobile-' . Str::of($this->title)->slug('-') . '-' . uniqid(date('HisYmd')) . '.' . $file->getClientOriginalExtension();
     }
 
-    protected $fillable = [
-        'subcategory_id', 'slug', 'title', 'description', 'image', 'image_mobile', 'order', 'status', 'price'
-    ];
+    
 
     public function subcategory()
     {

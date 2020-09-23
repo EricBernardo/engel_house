@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\URL;
 $getRequestUri = request()->getRequestUri();
 
 if (strpos($getRequestUri, '/public') !== false) {
-    header('Location: https://www.artefatosdecimentoportao.com.br' . str_replace('/public', '', $getRequestUri), true, 301);
+    header('Location: https://www.engelhouse.com.br' . str_replace('/public', '', $getRequestUri), true, 301);
     die("Aguarde...");
 }
 
@@ -48,9 +48,9 @@ Route::post('/lead', 'LeadController@store')->name('leads.store');
 
 Route::get('manifest.json', function () {
     return [
-        "name" => "Artefatos de Cimento Portão",
-        "short_name" => "AC Portão",
-        "theme_color" => "#FF4C00",
+        "name" => "Engel House",
+        "short_name" => "Engel House",
+        "theme_color" => "#ff6600",
         "background_color" => "#FFFFFF",
         "display" => "standalone",
         "scope" => "/",

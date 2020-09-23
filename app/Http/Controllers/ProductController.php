@@ -45,7 +45,9 @@ class ProductController extends Controller
             $seo['image'] = $product['image'];
         }
 
-        return view('site/pages/product_show', compact(
+        $this->serviceProduct->setView($slug);
+
+        return view('site/pages/product_details', compact(
             'setting',
             'product',
             'seo',

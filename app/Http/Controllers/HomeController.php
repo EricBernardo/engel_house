@@ -54,11 +54,18 @@ class HomeController extends Controller
         $products = $this->serviceProduct->all();
         $categories = $this->serviceCategory->all();
         $home_products = $this->serviceHomeProduct->all();
+
+        $products_news =     $this->serviceProduct->newsProducts();
+        $products_featured = $this->serviceProduct->featuredProdutos();
+        $products_most_viewed = $this->serviceProduct->mostViewedProducts();
+
         return view('site/pages/home', compact(
             'setting',
             'banner',
             'seo',
-            'products',
+            'products_news',
+            'products_featured',
+            'products_most_viewed',
             'home_products',
             'categories'
         ));

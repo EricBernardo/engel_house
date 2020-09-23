@@ -4,6 +4,7 @@
 
 @if($product)
     <section>
+        <div class="breadcrumb">Home / {{ $product->subcategory->category['title'] }} / {{ $product->subcategory['title'] }}</div>
         <div class="product_details">
             <div class="product_details__images">
                 <div class="product_details__main-image">
@@ -11,7 +12,6 @@
                 </div>
             </div>
             <div class="product_details__info">
-                <p class="product_details__info--breadcrumb">Home / {{ $product->subcategory->category['title'] }} / {{ $product->subcategory['title'] }}</p>
                 <h1 class="product_details__info--title">{{ $product['title'] }}</h1>
                 <p class="product_details__info--category"><span>Categoria:</span> {{ $product->subcategory->category['title'] }}</p>
                 <p class="product_details__info--price">R$ {{ formatMoney($product['price']) }}</p>

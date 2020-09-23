@@ -60,7 +60,7 @@
                                 value="{{ $item['order'] }}">
                         </div>
                         <div class="form-group">
-                            <label for="inputActive">Status</label>
+                            <label for="inputFeatured">Status</label>
                             <select class="form-control" name="status">
                                 <option value="1"
                                     {{ $item['status'] ? 'selected' : '' }}>
@@ -68,6 +68,17 @@
                                 <option value="0"
                                     {{ !$item['status'] ? 'selected' : '' }}>
                                     Inativo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFeatured">Destaque</label>
+                            <select class="form-control" name="featured">
+                                <option value="1"
+                                    {{ $item['featured'] ? 'selected' : '' }}>
+                                    Sim</option>
+                                <option value="0"
+                                    {{ !$item['featured'] ? 'selected' : '' }}>
+                                    Não</option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-sm btn-primary">Salvar</button>

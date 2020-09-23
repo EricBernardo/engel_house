@@ -29,6 +29,7 @@
                                 <th width="20%">Imagem</th>
                                 <th width="10%">Preço</th>
                                 <th width="20%">Ordem</th>
+                                <th width="20%">Destaque</th>
                                 <th width="20%">Status</th>
                                 <th width="10%">-</th>
                                 <th width="10%">-</th>
@@ -46,6 +47,7 @@
                                             /></td>
                                     <td>R$ {{ formatMoney($item['price']) }}</td>
                                     <td>{{ $item['order'] }}</td>
+                                    <td>{{ $item['featured'] ? 'Sim' : 'Não' }}
                                     <td>{{ $item['status'] ? 'Ativo' : 'Inativo' }}
                                     </td>
                                     <td>

@@ -60,6 +60,13 @@
                                 <option value="0" {{ request()->old('status') === '0' ? 'selected' : ''}}>Inativo</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="inputFeatured">Destaque</label>
+                            <select class="form-control" name="featured">
+                                <option value="1" {{ request()->old('featured') === '1' ? 'selected' : ''}}>Sim</option>
+                                <option value="0" {{ request()->old('featured') === '0' ? 'selected' : ''}}>Não</option>
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
                         <a class="fa-pull-right" href="{{ route('products.index') }}">
                             <button type="button" class="btn btn-default btn-sm">

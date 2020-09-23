@@ -1,3 +1,11 @@
+.breadcrumb {
+    color: $gray-dark;
+    font-weight: bold;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px 0px 0px 20px;
+}
+
 .product_details {
     display: flex;
     max-width: $max-width;
@@ -24,15 +32,6 @@
     &__info {
         padding: 0 20px;
         color: $black;
-
-        &--breadcrumb {
-            color: $gray-dark;
-            font-weight: bold;
-
-            @media (max-width: 768px) {
-                margin-top: 20px;
-            }
-        }
 
         &--title {
             padding: 20px 0;

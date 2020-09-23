@@ -24,8 +24,11 @@ class ProductService extends DefaultService
             'order' => $request->get('order'),
             'image' => '',
             'image_mobile' => '',
+            'views' => 0,
             'price' => str_replace(['.', ','], ['', '.'], $request->get('price')),
             'status' => $request->get('status') == '1' ? true : false,
+            'featured' => $request->get('status') == '1' ? true : false,
+            'created_at' => date('Y-m-d h:i:s'),
         ]);
 
         $entity = $this->model->find($insert_id);
@@ -63,6 +66,8 @@ class ProductService extends DefaultService
             'order' => $request->get('order'),
             'price' => str_replace(['.', ','], ['', '.'], $request->get('price')),
             'status' => $request->get('status') == '1' ? true : false,
+            'featured' => $request->get('status') == '1' ? true : false,
+            'updated_at' => date('Y-m-d h:i:s'),
         ];
 
         if ($request->hasFile('image')) {
@@ -148,5 +153,49 @@ class ProductService extends DefaultService
 
 
         return $result->orderBy('order')->paginate();
+    }
+
+    public function newsProducts()
+    {
+        return $this->model->where(function ($q) {
+            $q->where('status', '=', 1);
+        })->orderBy('id', 'desc')->limit(8)->get();
+    }
+
+    public function featuredProdutos()
+    {
+        $result = $this->model->where(function ($q) {
+            $q->where('status', '=', 1);
+            $q->where('featured', '=', 1);
+        });
+
+        return $result->orderBy('order')->limit(8)->get();
+    }
+
+    public function mostViewedProducts()
+    {
+        $result = $this->model->where(function ($q) {
+            $q->where('status', '=', 1);
+        });
+
+        return $result->orderBy('views', 'desc')->limit(8)->get();
+    }
+
+    public function setView($product_slug) {
+        
+        $product_views = session('product_views');
+        
+        if(!$product_views || !in_array($product_slug, $product_views)) {
+            
+            $product_views[] = $product_slug;
+
+            $product = $this->model->where('slug', $product_slug);
+
+            if($product->update(['views' => \DB::raw('views+1')])) {
+                session(['product_views' => $product_views]);
+            }
+
+        }
+
     }
 }

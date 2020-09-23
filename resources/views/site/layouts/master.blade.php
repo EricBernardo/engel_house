@@ -6,7 +6,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="theme-color" content="#FF4C00">
+        <meta name="theme-color" content="#ff6600">
 
         <link rel="manifest" href="{{ url('manifest.json') }}">
 

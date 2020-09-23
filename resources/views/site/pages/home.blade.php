@@ -8,11 +8,11 @@
 
     @include('site/includes/home_products')
 
-    @include('site/includes/carousel', ['title' => 'Lançamentos'])
+    @include('site/includes/carousel', ['title' => 'Lançamentos', 'products' => $products_news])
 
-    @include('site/includes/carousel', ['title' => 'Produtos Mais Visualizados'])
+    @include('site/includes/carousel', ['title' => 'Produtos Mais Visualizados', 'products' => $products_most_viewed])
 
-    @include('site/includes/carousel', ['title' => 'Destaques'])
+    @include('site/includes/carousel', ['title' => 'Destaques', 'products' => $products_featured])
 
     @include('site/includes/form', ['class' => 'form-contact'])
 
