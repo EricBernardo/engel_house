@@ -14,7 +14,7 @@
 
         <meta property="og:type" content="website">
 
-        <meta name="google-site-verification" content="gNoXNEBgAr7tVadLF6aZ5ugr-OtzO0_buf2Ik7WflLI">
+        <meta name="google-site-verification" content="gNoXNEBgAr7tVadLF6aZ5ugr-OtzO0_buf2Ik7WflLI" />
 
         @if($seo)
 
