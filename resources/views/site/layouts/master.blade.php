@@ -64,5 +64,15 @@
 
         <script async src="{{ URL::asset('/js/site/app.js?v=') . env('APP_VERSION') }}"></script>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178898787-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-178898787-1');
+        </script>
+
     </body>
 </html>

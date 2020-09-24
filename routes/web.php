@@ -71,16 +71,16 @@ Route::get('sitemap.xml', function () {
 
         $sitemap->add(URL::to('/'), $date, '1.0', 'daily');
         $sitemap->add(URL::to('produtos'), $date, '0.9', 'monthly');
-        $sitemap->add(URL::to('quem-somos'), $date, '0.9', 'monthly');
+        // $sitemap->add(URL::to('quem-somos'), $date, '0.9', 'monthly');
 
         $products = DB::table('products')->where('status', 1)->get();
 
         // add every product to the sitemap
         foreach ($products as $product) {
-            $sitemap->add(URL::to('produtos/' . $product->slug), ($product->updated_at ? $product->updated_at : $date), '0.9', 'monthly');
+            $sitemap->add(URL::to('p/' . $product->slug), ($product->updated_at ? $product->updated_at : $date), '0.9', 'monthly');
         }
 
-        $sitemap->add(URL::to('equipe'), $date, '0.9', 'monthly');
+        // $sitemap->add(URL::to('equipe'), $date, '0.9', 'monthly');
         $sitemap->add(URL::to('contato'), $date, '0.9', 'monthly');
     }
 
