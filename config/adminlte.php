@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Admin | Artefatos de cimento Portão',
+    'title' => 'Admin | Engel House',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>AC</b>Portão',
+    'logo' => '<b>EH</b>Portão',
     'logo_img' => 'vendor/adminlte/dist/img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'AC Portão',
+    'logo_img_alt' => 'EH Portão',
 
     /*
     |--------------------------------------------------------------------------
