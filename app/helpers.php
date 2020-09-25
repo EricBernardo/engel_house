@@ -20,5 +20,6 @@ function summarizeText($string, $length = 120)
 
 function formatMoney($i)
 {
-    return number_format($i, 2, ',', '.');
+	$fig = (int) str_pad('1', 3, '0');    
+    return number_format((floor($i * $fig) / $fig), 2, ',', '.');
 }

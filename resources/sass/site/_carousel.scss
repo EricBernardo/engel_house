@@ -72,11 +72,15 @@
         border-radius: 5px;
 
         &-img {
-            height: 300px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             overflow: hidden;
+
+            img {
+                width: auto !important;
+                height: 300px;
+            }
         }
 
         &-title,
