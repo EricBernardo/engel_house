@@ -43,6 +43,10 @@
 
         <link rel="stylesheet" href="{{ URL::asset('/css/site/app.css?v=') . env('APP_VERSION') }}">
 
+        <script type="text/javascript">
+            var isMobile = <?php echo isMobile() ? 1 : 0; ?>;
+        </script>
+
     </head>
     <body>
 

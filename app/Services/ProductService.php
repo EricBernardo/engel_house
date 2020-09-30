@@ -122,6 +122,7 @@ class ProductService extends DefaultService
     {
         return $this->model->where('status', 1)
             ->where('id', '!=', $product['id'])
+            ->where('subcategory_id', $product['subcategory_id'])
             ->whereHas('subcategory', function ($q) use ($product) {
                 $q->where('category_id', '=', $product->subcategory->category['id']);
             })

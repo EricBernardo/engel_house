@@ -23,6 +23,6 @@ $(document).ready(function () {
         autoplay: true,
         nav: true,
         loop: false,
-        items: window.outerWidth > 768 ? 4 : 1,
+        items: isMobile ? 1 : 4,
     });
 });

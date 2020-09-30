@@ -2,7 +2,31 @@
 
 function isMobile()
 {
-    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+	if(is_mobile() && !is_tablet() && !is_ipad()) {
+		return true;
+	}
+
+	return false;
+}
+
+function is_desktop(){
+  $useragent = $_SERVER['HTTP_USER_AGENT'];
+  return stripos($useragent,'mobile')===false && stripos($useragent,'tablet')===false && stripos($useragent,'ipad')===false ;
+}
+ 
+function is_tablet(){
+  $useragent = $_SERVER['HTTP_USER_AGENT'];
+  return stripos($useragent,'tablet')!==false || stripos($useragent,'tab')!==false;
+}
+
+function is_ipad(){
+  $useragent = $_SERVER['HTTP_USER_AGENT'];
+  return stripos($useragent,'ipad')!==false;
+}
+
+function is_mobile(){
+  $useragent = $_SERVER['HTTP_USER_AGENT'];
+  return stripos($useragent,'mobile')!==false || stripos($useragent,'nokia')!==false || stripos($useragent,'phone')!==false;
 }
 
 function onlyNumber($c)
