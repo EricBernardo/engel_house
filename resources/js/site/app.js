@@ -22,7 +22,8 @@ $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
         autoplay: true,
         nav: true,
-        loop: true,
+        loop: false,
+        autoplayTimeout: 5000,
         items: isMobile ? 1 : 4,
     });
 });
