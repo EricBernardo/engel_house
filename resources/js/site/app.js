@@ -22,7 +22,7 @@ $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
         autoplay: true,
         nav: true,
-        loop: false,
+        loop: true,
         items: isMobile ? 1 : 4,
     });
 });
