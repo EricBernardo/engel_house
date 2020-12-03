@@ -65,6 +65,15 @@
 
     .carousel--product {
         width: 25%;
+        margin: 0;
+
+        a {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
 
         img {
             width: auto;

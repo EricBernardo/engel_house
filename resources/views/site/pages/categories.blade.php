@@ -39,6 +39,7 @@
                         </a>
                     </div>
                     @endforeach
+                    <?php echo $products->render(); ?>
                 @else
                     <div class="categories-message">
                         Resultado não encontrado.
