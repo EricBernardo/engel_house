@@ -63,9 +63,14 @@
         padding: 20px;
     }
 
+    nav {
+        width: 100%;
+    }
+
     .carousel--product {
         width: 25%;
         margin: 0;
+        border: none;
 
         a {
             border: 1px solid #ddd;

@@ -153,7 +153,7 @@ class ProductService extends DefaultService
 
 
 
-        return $result->orderBy('order')->paginate();
+        return $result->orderBy('order')->paginate(16);
     }
 
     public function newsProducts()
