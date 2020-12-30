@@ -104,6 +104,18 @@
         }
     }
 
+    &__captcha {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        img {
+            width: 100%;
+            max-width: 600px;
+        }
+    }
+
     @media (max-width: 768px) {
         &__title {
             font-size: 32px;

@@ -27,7 +27,8 @@ class LeadRequestStore extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'message' => 'required'
+            'message' => 'required',
+            'captcha' => 'required|captcha_api:'. request('key') . ',default'
         ];
     }
 }

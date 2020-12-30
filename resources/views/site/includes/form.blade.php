@@ -8,8 +8,9 @@
         <div class="form__items">
             <div class="form__form">
                 <p>Ligue para nós</p>
-                <form id="form-contact" action="{{ url('/lead') }}">
-                    <input type="hidden" name="http_referrer" value="{{ @$_SESSION['last_url'] }} " />
+                <form id="form-contact" action="{{ url('/lead') }}" data-url-key="{{ url('/captcha/api/math') }}">
+                    <input type="hidden" name="http_referrer" value="{{ @$_SESSION['last_url'] }}" />
+                    <input type="hidden" name="key" value="" />
                     <label for="name">Nome</label>
                     <input type="text" id="name" name="name" placeholder="Nome*" />
                     <label for="email">E-mail</label>
@@ -18,6 +19,8 @@
                     <input type="text" id="phone" name="phone" placeholder="Telefone*" />
                     <label for="message">Mensagem</label>
                     <textarea id="message" name="message" placeholder="Mensagem*" rows="6"></textarea>
+                    <div class="form__captcha"></div>
+                    <input type="text" id="captcha" name="captcha" placeholder="Captcha*" />
                     <div id="messages-form"></div>
                     <button type="button" id="form-contact-button">Enviar</button>
                 </form>

@@ -179,4 +179,6 @@ return [
         'password_confirmation' => 'confirmação da senha',
     ],
 
+    "captcha_api" => "O campo captcha está com inválido."
+
 ];

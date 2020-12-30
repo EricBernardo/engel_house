@@ -2,6 +2,9 @@ const formContactButton = document
     .getElementById("form-contact-button")
 
 if(formContactButton) {
+
+    getCaptcha();
+
     formContactButton
     .addEventListener("click", function () {
         const elMessageForm = document.getElementById("messages-form");
@@ -24,7 +27,7 @@ if(formContactButton) {
                 let __html = "";
                 __this.removeAttribute("disabled");
                 const response = JSON.parse(xhr.response);
-                if (typeof response.errors != "undefined") {
+                if (typeof response.errors != "undefined") {                    
                     __html =
                         '<div id="form-message" class="alert alert-danger" role="alert">';
                     __html += '<p class="alert-heading">Atenção!</p>';
@@ -44,8 +47,27 @@ if(formContactButton) {
                     __form.reset();
                 }
 
+                getCaptcha();
                 elMessageForm.innerHTML = __html;
             }
         };
     });
+}
+
+function getCaptcha() {
+    const __formContact = document.getElementById("form-contact");
+    if (__formContact) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", __formContact.getAttribute('data-url-key'));
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                const { key, img } = JSON.parse(xhr.response);
+                __formContact.querySelector('.form__captcha').innerHTML = '<img src="' + img + '">';
+                __formContact.querySelector('[name="key"]').value = key;
+                __formContact.querySelector('[name="captcha"]').value = '';
+            }
+        };
+    }
 }
