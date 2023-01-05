@@ -34,7 +34,9 @@
                                 <img src="{{ URL::asset('storage/' . (isMobile() ? $item['image_mobile'] : $item['image']))}}" alt="{{ $item['title'] }}" title="{{ $item['title'] }}">
                             </div>
                             <p class="carousel--product-title" title="{{$item['title']}}">{{$item['title']}}</p>
-                            <p class="carousel--product-price">R$ {{ formatMoney($item['price']) }}</p>
+                            @if($setting['show_prices'])
+                                <p class="carousel--product-price">R$ {{ formatMoney($item['price']) }}</p>
+                            @endif
                             <p class="carousel--product-see-more">Veja Mais</p>
                         </a>
                     </div>
