@@ -74,6 +74,13 @@
                                 value="{{ $item['order'] }}">
                         </div>
                         <div class="form-group">
+                            <label for="inputActive">Mostrar Preços</label>
+                            <select class="form-control" name="show_prices">
+                                <option value="1" {{ $item['show_prices'] === 1 ? 'selected' : ''}}>Sim</option>
+                                <option value="0" {{ $item['show_prices'] === 0 ? 'selected' : ''}}>Não</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="inputActive">Status</label>
                             <select class="form-control" name="status">
                                 <option value="1" {{ $item['status'] === '1' ? 'selected' : ''}}>Ativo</option>

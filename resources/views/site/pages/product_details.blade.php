@@ -14,8 +14,14 @@
             <div class="product_details__info">
                 <h1 class="product_details__info--title">{{ $product['title'] }}</h1>
                 <p class="product_details__info--category"><span>Categoria:</span> {{ $product->subcategory->category['title'] }}</p>
-                <p class="product_details__info--price">R$ {{ formatMoney($product['price']) }}</p>
-                <p class="product_details__info--parcels">até 3x de R$ {{ formatMoney($product['price'] / 3) }} sem juros</p>
+                <p class="product_details__info--price">
+                    @if($setting['show_prices'])
+                        R$ {{ formatMoney($product['price']) }}
+                    @else
+                        Consulte o preço
+                    @endif
+                </p>
+                {{-- <p class="product_details__info--parcels">até 3x de R$ {{ formatMoney($product['price'] / 3) }} sem juros</p> --}}
                 <div class="product_details__info--descriptions">{!! nl2br($product['description']) !!}</div>
             </div>
         </div>

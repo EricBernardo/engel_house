@@ -30,7 +30,8 @@ class SettingService extends DefaultService
             'copyright' => $request->get('copyright'),
             'order' => $request->get('order'),
             'email' => $request->get('email'),
-            'status' => $request->get('status') == '1' ? true : false
+            'status' => $request->get('status') == '1' ? true : false,
+            'show_prices' => $request->get('show_prices') == '1' ? true : false
         ]);
 
         return redirect()
@@ -53,7 +54,8 @@ class SettingService extends DefaultService
             'copyright' => $request->get('copyright'),
             'order' => $request->get('order'),
             'email' => $request->get('email'),
-            'status' => $request->get('status') == '1' ? true : false
+            'status' => $request->get('status') == '1' ? true : false,
+            'show_prices' => $request->get('show_prices') == '1' ? true : false
         ];
 
         if ($request->hasFile('favicon')) {

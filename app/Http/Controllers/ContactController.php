@@ -13,6 +13,7 @@ class ContactController extends Controller
     private $serviceContact;
     private $serviceSetting;
     private $serviceCategory;
+    private $serviceSeo;
     /**
      * Create a new controller instance.
      *

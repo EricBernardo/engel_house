@@ -18,6 +18,7 @@ class Setting extends Model
         'facebook_link',
         'order',
         'status',
-        'email'
+        'email',
+        'show_prices'
     ];
 }
