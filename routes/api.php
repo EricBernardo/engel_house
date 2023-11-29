@@ -1,7 +1,9 @@
 <?php
 
 use App\Mail\NotificationBoadGame;
+use duzun\hQuery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
