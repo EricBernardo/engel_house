@@ -26,7 +26,7 @@ Route::get('/boardgame', function () {
 
     $curl = curl_init();
 
-    $url = 'https://www.amazon.com.br/gp/product/B0C839TQVF?null=null&linkCode=sl1&tag=jcdisciple03-20&linkId=b49c4bc42ec1d6e2f32cf65a17fa313d&language=pt_BR&ref_=as_li_ss_tl';
+    $url = 'https://www.amazon.com.br/gp/product/B0C839TQVF';
     // $url = 'https://www.amazon.com.br/Gal%C3%A1pagos-Jogos-Senhor-Dos-An%C3%A9is/dp/B07R1DJFV2/?_encoding=UTF8&pd_rd_w=keKtG&content-id=amzn1.sym.9a79939f-db4f-4253-8a7f-095dfe9801c5%3Aamzn1.symc.e5c80209-769f-4ade-a325-2eaec14b8e0e&pf_rd_p=9a79939f-db4f-4253-8a7f-095dfe9801c5&pf_rd_r=V5NKNFNX5PXDJPGY07S4&pd_rd_wg=jd2l6&pd_rd_r=855afc50-8c23-4077-a99a-cfb922f7e0e1&ref_=pd_gw_ci_mcx_mr_hp_atf_m';
 
     curl_setopt_array($curl, array(
@@ -45,7 +45,10 @@ Route::get('/boardgame', function () {
 
     $response = curl_exec($curl);
 
-    // curl_close($curl);
+    curl_close($curl);
+
+
+
     // echo $response;
     // die;
     // session_start();
